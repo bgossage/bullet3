@@ -19,12 +19,14 @@ subject to the following restrictions:
 #ifndef BT_CD_HULL_H
 #define BT_CD_HULL_H
 
+#include "linear_math_config.h"
+
 #include "btVector3.h"
 #include "btAlignedObjectArray.h"
 
 typedef btAlignedObjectArray<unsigned int> TUIntArray;
 
-class HullResult
+class LINEAR_MATH_EXPORT HullResult
 {
 public:
 	HullResult(void)
