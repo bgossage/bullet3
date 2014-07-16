@@ -9,8 +9,9 @@
 *.user
 **/*.filters
 *.cmake
-CMakefiles
+CMakeFiles
 Makefile
 CMakeCache.txt
 *.sln
 lib
+*.so*
