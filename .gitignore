@@ -1,5 +1,12 @@
 **/.vcproj.*
 *.vcxproj
+*.dir
+*.suo
+*.sdf
+*.opensdf
+*.cache
+**/ipch
+*.user
 **/*.filters
 *.cmake
 CMakefiles
