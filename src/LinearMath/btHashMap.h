@@ -77,11 +77,11 @@ struct LINEAR_MATH_EXPORT btHashString
 const int BT_HASH_NULL=0xffffffff;
 
 
-class btHashInt
+class  btHashInt
 {
 	int	m_uid;
 public:
-	btHashInt(int uid)	:m_uid(uid)
+	btHashInt(int uid=0)	:m_uid(uid)
 	{
 	}
 

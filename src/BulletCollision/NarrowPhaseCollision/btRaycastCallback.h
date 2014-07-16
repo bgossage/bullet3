@@ -16,13 +16,16 @@ subject to the following restrictions:
 #ifndef BT_RAYCAST_TRI_CALLBACK_H
 #define BT_RAYCAST_TRI_CALLBACK_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/CollisionShapes/btTriangleCallback.h"
 #include "LinearMath/btTransform.h"
+
 struct btBroadphaseProxy;
 class btConvexShape;
 
 
-class  btTriangleRaycastCallback: public btTriangleCallback
+class BULLET_COLLISION_EXPORT  btTriangleRaycastCallback: public btTriangleCallback
 {
 public:
 

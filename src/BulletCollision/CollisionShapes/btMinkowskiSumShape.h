@@ -16,11 +16,13 @@ subject to the following restrictions:
 #ifndef BT_MINKOWSKI_SUM_SHAPE_H
 #define BT_MINKOWSKI_SUM_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 #include "btConvexInternalShape.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseProxy.h" // for the types
 
 /// The btMinkowskiSumShape is only for advanced users. This shape represents implicit based minkowski sum of two convex implicit shapes.
-ATTRIBUTE_ALIGNED16(class) btMinkowskiSumShape : public btConvexInternalShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btMinkowskiSumShape : public btConvexInternalShape
 {
 
 	btTransform	m_transA;

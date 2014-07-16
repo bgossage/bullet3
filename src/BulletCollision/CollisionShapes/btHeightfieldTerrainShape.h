@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_HEIGHTFIELD_TERRAIN_SHAPE_H
 #define BT_HEIGHTFIELD_TERRAIN_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 #include "btConcaveShape.h"
 
 ///btHeightfieldTerrainShape simulates a 2D heightfield terrain
@@ -68,7 +70,7 @@ subject to the following restrictions:
 
   For usage and testing see the TerrainDemo.
  */
-ATTRIBUTE_ALIGNED16(class) btHeightfieldTerrainShape : public btConcaveShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btHeightfieldTerrainShape : public btConcaveShape
 {
 protected:
 	btVector3	m_localAabbMin;

@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef _BT_TRIANGLE_INFO_MAP_H
 #define _BT_TRIANGLE_INFO_MAP_H
 
+#include "../bullet_collision_config.h"
+
 
 #include "LinearMath/btHashMap.h"
 #include "LinearMath/btSerializer.h"
@@ -33,7 +35,7 @@ subject to the following restrictions:
 
 ///The btTriangleInfo structure stores information to adjust collision normals to avoid collisions against internal edges
 ///it can be generated using 
-struct	btTriangleInfo
+struct BULLET_COLLISION_EXPORT	btTriangleInfo
 {
 	btTriangleInfo()
 	{
@@ -55,7 +57,7 @@ typedef btHashMap<btHashInt,btTriangleInfo> btInternalTriangleInfoMap;
 
 
 ///The btTriangleInfoMap stores edge angle information for some triangles. You can compute this information yourself or using btGenerateInternalEdgeInfo.
-struct	btTriangleInfoMap : public btInternalTriangleInfoMap
+struct BULLET_COLLISION_EXPORT	btTriangleInfoMap : public btInternalTriangleInfoMap
 {
 	btScalar	m_convexEpsilon;///used to determine if an edge or contact normal is convex, using the dot product
 	btScalar	m_planarEpsilon; ///used to determine if a triangle edge is planar with zero angle
@@ -86,7 +88,7 @@ struct	btTriangleInfoMap : public btInternalTriangleInfoMap
 };
 
 ///those fields have to be float and not btScalar for the serialization to work properly
-struct	btTriangleInfoData
+struct BULLET_COLLISION_EXPORT	btTriangleInfoData
 {
 	int			m_flags;
 	float	m_edgeV0V1Angle;
@@ -94,7 +96,7 @@ struct	btTriangleInfoData
 	float	m_edgeV2V0Angle;
 };
 
-struct	btTriangleInfoMapData
+struct BULLET_COLLISION_EXPORT	btTriangleInfoMapData
 {
 	int					*m_hashTablePtr;
 	int					*m_nextPtr;

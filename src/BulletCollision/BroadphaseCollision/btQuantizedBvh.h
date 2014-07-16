@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_QUANTIZED_BVH_H
 #define BT_QUANTIZED_BVH_H
 
+#include "../bullet_collision_config.h"
+
 class btSerializer;
 
 //#define DEBUG_CHECK_DEQUANTIZATION 1
@@ -55,7 +57,7 @@ class btSerializer;
 
 ///btQuantizedBvhNode is a compressed aabb node, 16 bytes.
 ///Node can be used for leafnode or internal node. Leafnodes can point to 32-bit triangle index (non-negative range).
-ATTRIBUTE_ALIGNED16	(struct) btQuantizedBvhNode
+ATTRIBUTE_ALIGNED16	(struct)  BULLET_COLLISION_EXPORT btQuantizedBvhNode
 {
 	BT_DECLARE_ALIGNED_ALLOCATOR();
 

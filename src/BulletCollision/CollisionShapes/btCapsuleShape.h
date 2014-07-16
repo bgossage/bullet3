@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_CAPSULE_SHAPE_H
 #define BT_CAPSULE_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 #include "btConvexInternalShape.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseProxy.h" // for the types
 
@@ -23,7 +25,7 @@ subject to the following restrictions:
 ///The btCapsuleShape represents a capsule around the Y axis, there is also the btCapsuleShapeX aligned around the X axis and btCapsuleShapeZ around the Z axis.
 ///The total height is height+2*radius, so the height is just the height between the center of each 'sphere' of the capsule caps.
 ///The btCapsuleShape is a convex hull of two spheres. The btMultiSphereShape is a more general collision shape that takes the convex hull of multiple sphere, so it can also represent a capsule when just using two spheres.
-ATTRIBUTE_ALIGNED16(class) btCapsuleShape : public btConvexInternalShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btCapsuleShape : public btConvexInternalShape
 {
 protected:
 	int	m_upAxis;
@@ -122,7 +124,7 @@ public:
 
 ///btCapsuleShapeX represents a capsule around the Z axis
 ///the total height is height+2*radius, so the height is just the height between the center of each 'sphere' of the capsule caps.
-class btCapsuleShapeX : public btCapsuleShape
+class BULLET_COLLISION_EXPORT btCapsuleShapeX : public btCapsuleShape
 {
 public:
 
@@ -140,7 +142,7 @@ public:
 
 ///btCapsuleShapeZ represents a capsule around the Z axis
 ///the total height is height+2*radius, so the height is just the height between the center of each 'sphere' of the capsule caps.
-class btCapsuleShapeZ : public btCapsuleShape
+class BULLET_COLLISION_EXPORT btCapsuleShapeZ : public btCapsuleShape
 {
 public:
 	btCapsuleShapeZ(btScalar radius,btScalar height);
@@ -155,7 +157,7 @@ public:
 };
 
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
-struct	btCapsuleShapeData
+struct BULLET_COLLISION_EXPORT	btCapsuleShapeData
 {
 	btConvexInternalShapeData	m_convexInternalShapeData;
 

@@ -16,12 +16,14 @@ subject to the following restrictions:
 #ifndef BT_SCALED_BVH_TRIANGLE_MESH_SHAPE_H
 #define BT_SCALED_BVH_TRIANGLE_MESH_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/CollisionShapes/btBvhTriangleMeshShape.h"
 
 
 ///The btScaledBvhTriangleMeshShape allows to instance a scaled version of an existing btBvhTriangleMeshShape.
 ///Note that each btBvhTriangleMeshShape still can have its own local scaling, independent from this btScaledBvhTriangleMeshShape 'localScaling'
-ATTRIBUTE_ALIGNED16(class) btScaledBvhTriangleMeshShape : public btConcaveShape
+ATTRIBUTE_ALIGNED16(class)  BULLET_COLLISION_EXPORT btScaledBvhTriangleMeshShape : public btConcaveShape
 {
 	
 	

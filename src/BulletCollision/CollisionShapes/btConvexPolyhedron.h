@@ -20,13 +20,15 @@ subject to the following restrictions:
 #ifndef _BT_POLYHEDRAL_FEATURES_H
 #define _BT_POLYHEDRAL_FEATURES_H
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btTransform.h"
 #include "LinearMath/btAlignedObjectArray.h"
 
 #define TEST_INTERNAL_OBJECTS 1
 
 
-struct btFace
+struct  BULLET_COLLISION_EXPORT btFace
 {
 	btAlignedObjectArray<int>	m_indices;
 //	btAlignedObjectArray<int>	m_connectedFaces;
@@ -34,7 +36,7 @@ struct btFace
 };
 
 
-ATTRIBUTE_ALIGNED16(class) btConvexPolyhedron
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btConvexPolyhedron
 {
 	public:
 		

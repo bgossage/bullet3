@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_COLLISION_CONFIGURATION
 #define BT_COLLISION_CONFIGURATION
 
+#include "../bullet_collision_config.h"
+
 struct btCollisionAlgorithmCreateFunc;
 
 class btPoolAllocator;
@@ -23,7 +25,7 @@ class btPoolAllocator;
 ///btCollisionConfiguration allows to configure Bullet collision detection
 ///stack allocator size, default collision algorithms and persistent manifold pool size
 ///@todo: describe the meaning
-class	btCollisionConfiguration
+class BULLET_COLLISION_EXPORT	btCollisionConfiguration
 {
 
 public:

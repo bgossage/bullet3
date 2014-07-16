@@ -16,6 +16,7 @@ subject to the following restrictions:
 #ifndef BT_GHOST_OBJECT_H
 #define BT_GHOST_OBJECT_H
 
+#include "../bullet_collision_config.h"
 
 #include "btCollisionObject.h"
 #include "BulletCollision/BroadphaseCollision/btOverlappingPairCallback.h"
@@ -31,7 +32,7 @@ class btDispatcher;
 ///By default, this overlap is based on the AABB
 ///This is useful for creating a character controller, collision sensors/triggers, explosions etc.
 ///We plan on adding rayTest and other queries for the btGhostObject
-ATTRIBUTE_ALIGNED16(class) btGhostObject : public btCollisionObject
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btGhostObject : public btCollisionObject
 {
 protected:
 

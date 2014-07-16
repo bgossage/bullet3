@@ -19,6 +19,8 @@ subject to the following restrictions:
 
 #include "../bullet_collision_config.h"
 
+#include "../bullet_collision_config.h"
+
 class btCollisionObject;
 struct btCollisionObjectWrapper;
 

@@ -21,6 +21,8 @@ subject to the following restrictions:
 #ifndef BT_GENERIC_POOL_ALLOCATOR_H
 #define BT_GENERIC_POOL_ALLOCATOR_H
 
+#include "../bullet_collision_config.h"
+
 #include <limits.h>
 #include <stdio.h>
 #include <string.h>
@@ -31,7 +33,7 @@ subject to the following restrictions:
 
 
 //! Generic Pool class
-class btGenericMemoryPool
+class BULLET_COLLISION_EXPORT btGenericMemoryPool
 {
 public:
 	unsigned char * m_pool; //[m_element_size*m_max_element_count];

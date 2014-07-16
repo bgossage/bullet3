@@ -18,11 +18,13 @@ subject to the following restrictions:
 #ifndef BT_BVH_TRIANGLE_MATERIAL_MESH_SHAPE_H
 #define BT_BVH_TRIANGLE_MATERIAL_MESH_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 #include "btBvhTriangleMeshShape.h"
 #include "btMaterial.h"
 
 ///The BvhTriangleMaterialMeshShape extends the btBvhTriangleMeshShape. Its main contribution is the interface into a material array, which allows per-triangle friction and restitution.
-ATTRIBUTE_ALIGNED16(class) btMultimaterialTriangleMeshShape : public btBvhTriangleMeshShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btMultimaterialTriangleMeshShape : public btBvhTriangleMeshShape
 {
     btAlignedObjectArray <btMaterial*> m_materialList;
     int ** m_triangleMaterials;

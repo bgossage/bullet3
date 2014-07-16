@@ -370,7 +370,7 @@ SIMD_FORCE_INLINE bool _node_collision(
 
 }
 
-
+/*
 //stackless recursive collision routine
 static void _find_collision_pairs_recursive(
 	btGImpactBvh * boxset0, btGImpactBvh * boxset1,
@@ -496,3 +496,4 @@ void btGImpactBvh::find_collision(btGImpactBvh * boxset0, const btTransform & tr
 
 }
 
+*/

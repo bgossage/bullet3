@@ -15,6 +15,8 @@ subject to the following restrictions:
 #ifndef BT_CONVEX_TRIANGLEMESH_SHAPE_H
 #define BT_CONVEX_TRIANGLEMESH_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 
 #include "btPolyhedralConvexShape.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseProxy.h" // for the types
@@ -22,7 +24,7 @@ subject to the following restrictions:
 
 /// The btConvexTriangleMeshShape is a convex hull of a triangle mesh, but the performance is not as good as btConvexHullShape.
 /// A small benefit of this class is that it uses the btStridingMeshInterface, so you can avoid the duplication of the triangle mesh data. Nevertheless, most users should use the much better performing btConvexHullShape instead.
-ATTRIBUTE_ALIGNED16(class) btConvexTriangleMeshShape : public btPolyhedralConvexAabbCachingShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btConvexTriangleMeshShape : public btPolyhedralConvexAabbCachingShape
 {
 
 	class btStridingMeshInterface*	m_stridingMesh;

@@ -18,6 +18,8 @@ subject to the following restrictions:
 #ifndef BT_SHAPE_HULL_H
 #define BT_SHAPE_HULL_H
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btAlignedObjectArray.h"
 #include "BulletCollision/CollisionShapes/btConvexShape.h"
 
@@ -25,7 +27,7 @@ subject to the following restrictions:
 ///The btShapeHull class takes a btConvexShape, builds a simplified convex hull using btConvexHull and provides triangle indices and vertices.
 ///It can be useful for to simplify a complex convex object and for visualization of a non-polyhedral convex object.
 ///It approximates the convex hull using the supporting vertex of 42 directions.
-ATTRIBUTE_ALIGNED16(class) btShapeHull
+ATTRIBUTE_ALIGNED16(class)  BULLET_COLLISION_EXPORT btShapeHull
 {
 protected:
 

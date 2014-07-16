@@ -18,6 +18,8 @@ subject to the following restrictions:
 #ifndef BT_SIMPLEX_SOLVER_INTERFACE_H
 #define BT_SIMPLEX_SOLVER_INTERFACE_H
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btVector3.h"
 
 #define NO_VIRTUAL_INTERFACE 1
@@ -29,7 +31,7 @@ subject to the following restrictions:
 /// btSimplexSolverInterface can incrementally calculate distance between origin and up to 4 vertices
 /// Used by GJK or Linear Casting. Can be implemented by the Johnson-algorithm or alternative approaches based on
 /// voronoi regions or barycentric coordinates
-class btSimplexSolverInterface
+class BULLET_COLLISION_EXPORT btSimplexSolverInterface
 {
 	public:
 		virtual ~btSimplexSolverInterface() {};

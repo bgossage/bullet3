@@ -16,10 +16,12 @@ subject to the following restrictions:
 #ifndef BT_TRIANGLE_BUFFER_H
 #define BT_TRIANGLE_BUFFER_H
 
+#include "../bullet_collision_config.h"
+
 #include "btTriangleCallback.h"
 #include "LinearMath/btAlignedObjectArray.h"
 
-struct	btTriangle
+struct BULLET_COLLISION_EXPORT	btTriangle
 {
 	btVector3	m_vertex0;
 	btVector3	m_vertex1;
@@ -37,7 +39,7 @@ struct	btTriangle
 ///				const btTriangle& tri = triBuf.getTriangle(i);
 ///				//do something useful here with the triangle
 ///			}
-class btTriangleBuffer : public btTriangleCallback
+class  BULLET_COLLISION_EXPORT btTriangleBuffer : public btTriangleCallback
 {
 
 	btAlignedObjectArray<btTriangle>	m_triangleBuffer;

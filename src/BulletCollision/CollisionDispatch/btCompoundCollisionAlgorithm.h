@@ -17,6 +17,8 @@ subject to the following restrictions:
 #ifndef BT_COMPOUND_COLLISION_ALGORITHM_H
 #define BT_COMPOUND_COLLISION_ALGORITHM_H
 
+#include "../bullet_collision_config.h"
+
 #include "btActivatingCollisionAlgorithm.h"
 #include "BulletCollision/BroadphaseCollision/btDispatcher.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseInterface.h"
@@ -34,7 +36,7 @@ typedef bool (*btShapePairCallback)(const btCollisionShape* pShape0, const btCol
 extern btShapePairCallback gCompoundChildShapePairCallback;
 
 /// btCompoundCollisionAlgorithm  supports collision between CompoundCollisionShapes and other collision shapes
-class btCompoundCollisionAlgorithm  : public btActivatingCollisionAlgorithm
+class BULLET_COLLISION_EXPORT btCompoundCollisionAlgorithm  : public btActivatingCollisionAlgorithm
 {
 protected:
 	btAlignedObjectArray<btCollisionAlgorithm*> m_childCollisionAlgorithms;

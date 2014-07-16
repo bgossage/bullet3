@@ -18,6 +18,8 @@ subject to the following restrictions:
 
 #include "../bullet_collision_config.h"
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btTransform.h"
 #include "LinearMath/btVector3.h"
 #include "LinearMath/btMatrix3x3.h"

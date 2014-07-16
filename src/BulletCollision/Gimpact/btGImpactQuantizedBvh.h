@@ -24,6 +24,8 @@ subject to the following restrictions:
 3. This notice may not be removed or altered from any source distribution.
 */
 
+#include "../bullet_collision_config.h"
+
 #include "btGImpactBvh.h"
 #include "btQuantization.h"
 
@@ -33,7 +35,7 @@ subject to the following restrictions:
 
 ///btQuantizedBvhNode is a compressed aabb node, 16 bytes.
 ///Node can be used for leafnode or internal node. Leafnodes can point to 32-bit triangle index (non-negative range).
-ATTRIBUTE_ALIGNED16	(struct) BT_QUANTIZED_BVH_NODE
+ATTRIBUTE_ALIGNED16	(struct)  BULLET_COLLISION_EXPORT BT_QUANTIZED_BVH_NODE
 {
 	//12 bytes
 	unsigned short int	m_quantizedAabbMin[3];
@@ -366,6 +368,7 @@ public:
 	static void find_collision(const btGImpactQuantizedBvh * boxset1, const btTransform & trans1,
 		const btGImpactQuantizedBvh * boxset2, const btTransform & trans2,
 		btPairSet & collision_pairs);
+
 };
 
 

@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_EMPTY_SHAPE_H
 #define BT_EMPTY_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 #include "btConcaveShape.h"
 
 #include "LinearMath/btVector3.h"
@@ -28,7 +30,7 @@ subject to the following restrictions:
 
 /// The btEmptyShape is a collision shape without actual collision detection shape, so most users should ignore this class.
 /// It can be replaced by another shape during runtime, but the inertia tensor should be recomputed.
-ATTRIBUTE_ALIGNED16(class) btEmptyShape	: public btConcaveShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btEmptyShape	: public btConcaveShape
 {
 public:
 	BT_DECLARE_ALIGNED_ALLOCATOR();

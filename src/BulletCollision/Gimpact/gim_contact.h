@@ -36,6 +36,7 @@ email: projectileman@yahoo.com
 #include "gim_radixsort.h"
 #include "gim_array.h"
 
+#include "../bullet_collision_config.h"
 
 /**
 Configuration var for applying interpolation of  contact normals
@@ -48,7 +49,7 @@ Configuration var for applying interpolation of  contact normals
 ///Contact lists must be create by calling \ref GIM_CREATE_CONTACT_LIST
 ///After querys, contact lists must be destroy by calling \ref GIM_DYNARRAY_DESTROY
 ///Contacts can be merge for avoid duplicate results by calling \ref gim_merge_contacts
-class GIM_CONTACT
+class BULLET_COLLISION_EXPORT GIM_CONTACT
 {
 public:
     btVector3 m_point;
@@ -101,6 +102,11 @@ public:
 		_uitmp++;
 		_hash += (*_uitmp)<<8;
 		return _hash;
+    }
+
+    SIMD_FORCE_INLINE  bool operator > ( GIM_CONTACT const& contact ) const
+    {
+       return calc_key_contact() > contact.calc_key_contact();
     }
 
     SIMD_FORCE_INLINE void interpolate_normals( btVector3 * normals,GUINT normal_count)

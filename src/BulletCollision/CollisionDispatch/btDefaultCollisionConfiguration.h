@@ -16,11 +16,13 @@ subject to the following restrictions:
 #ifndef BT_DEFAULT_COLLISION_CONFIGURATION
 #define BT_DEFAULT_COLLISION_CONFIGURATION
 
+#include "../bullet_collision_config.h"
+
 #include "btCollisionConfiguration.h"
 class btVoronoiSimplexSolver;
 class btConvexPenetrationDepthSolver;
 
-struct	btDefaultCollisionConstructionInfo
+struct BULLET_COLLISION_EXPORT	btDefaultCollisionConstructionInfo
 {
 	btPoolAllocator*	m_persistentManifoldPool;
 	btPoolAllocator*	m_collisionAlgorithmPool;
@@ -45,7 +47,7 @@ struct	btDefaultCollisionConstructionInfo
 ///btCollisionConfiguration allows to configure Bullet collision detection
 ///stack allocator, pool memory allocators
 ///@todo: describe the meaning
-class	btDefaultCollisionConfiguration : public btCollisionConfiguration
+class BULLET_COLLISION_EXPORT	btDefaultCollisionConfiguration : public btCollisionConfiguration
 {
 
 protected:

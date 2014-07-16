@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_PERSISTENT_MANIFOLD_H
 #define BT_PERSISTENT_MANIFOLD_H
 
+#include "../bullet_collision_config.h"
+
 
 #include "LinearMath/btVector3.h"
 #include "LinearMath/btTransform.h"
@@ -51,7 +53,7 @@ enum btContactManifoldTypes
 ///note that some pairs of objects might have more then one contact manifold.
 
 
-ATTRIBUTE_ALIGNED128( class) btPersistentManifold : public btTypedObject
+ATTRIBUTE_ALIGNED128( class) BULLET_COLLISION_EXPORT btPersistentManifold : public btTypedObject
 //ATTRIBUTE_ALIGNED16( class) btPersistentManifold : public btTypedObject
 {
 

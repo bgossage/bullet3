@@ -64,7 +64,7 @@ class CONTACT_KEY_TOKEN_COMP
 		}
 };
 
-
+/*
 void btContactArray::merge_contacts(
 	const btContactArray & contacts, bool normal_contact_average)
 {
@@ -178,4 +178,4 @@ void btContactArray::merge_contacts_unique(const btContactArray & contacts)
 	average_contact.m_normal /= average_contact.m_depth;
 
 }
-
+*/

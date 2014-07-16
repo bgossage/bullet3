@@ -19,6 +19,9 @@
 #ifndef BT_AXIS_SWEEP_3_H
 #define BT_AXIS_SWEEP_3_H
 
+#include "../bullet_collision_config.h"
+
+
 #include "LinearMath/btVector3.h"
 #include "btOverlappingPairCache.h"
 #include "btBroadphaseInterface.h"

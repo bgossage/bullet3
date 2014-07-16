@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_TRIANGLE_INDEX_VERTEX_ARRAY_H
 #define BT_TRIANGLE_INDEX_VERTEX_ARRAY_H
 
+#include "../bullet_collision_config.h"
+
 #include "btStridingMeshInterface.h"
 #include "LinearMath/btAlignedObjectArray.h"
 #include "LinearMath/btScalar.h"
@@ -23,7 +25,7 @@ subject to the following restrictions:
 
 ///The btIndexedMesh indexes a single vertex and index array. Multiple btIndexedMesh objects can be passed into a btTriangleIndexVertexArray using addIndexedMesh.
 ///Instead of the number of indices, we pass the number of triangles.
-ATTRIBUTE_ALIGNED16( struct)	btIndexedMesh
+ATTRIBUTE_ALIGNED16( struct) BULLET_COLLISION_EXPORT	btIndexedMesh
 {
 	BT_DECLARE_ALIGNED_ALLOCATOR();
 

@@ -19,6 +19,7 @@ subject to the following restrictions:
 #include "btConvexShape.h"
 #include "LinearMath/btAabbUtil2.h"
 
+#include "../bullet_collision_config.h"
 
 ///The btConvexInternalShape is an internal base class, shared by most convex shape implementations.
 ///The btConvexInternalShape uses a default collision margin set to CONVEX_DISTANCE_MARGIN.
@@ -26,7 +27,7 @@ subject to the following restrictions:
 ///Note that when creating small shapes (derived from btConvexInternalShape), 
 ///you need to make sure to set a smaller collision margin, using the 'setMargin' API
 ///There is a automatic mechanism 'setSafeMargin' used by btBoxShape and btCylinderShape
-ATTRIBUTE_ALIGNED16(class) btConvexInternalShape : public btConvexShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btConvexInternalShape : public btConvexShape
 {
 
 	protected:

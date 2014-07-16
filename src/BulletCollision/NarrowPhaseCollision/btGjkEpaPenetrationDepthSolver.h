@@ -17,11 +17,13 @@ subject to the following restrictions:
 #ifndef BT_GJP_EPA_PENETRATION_DEPTH_H
 #define BT_GJP_EPA_PENETRATION_DEPTH_H
 
+#include "../bullet_collision_config.h"
+
 #include "btConvexPenetrationDepthSolver.h"
 
 ///EpaPenetrationDepthSolver uses the Expanding Polytope Algorithm to
 ///calculate the penetration depth between two convex shapes.
-class btGjkEpaPenetrationDepthSolver : public btConvexPenetrationDepthSolver
+class BULLET_COLLISION_EXPORT btGjkEpaPenetrationDepthSolver : public btConvexPenetrationDepthSolver
 {
 	public :
 

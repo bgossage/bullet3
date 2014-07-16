@@ -17,6 +17,8 @@ subject to the following restrictions:
 #ifndef BT_DBVT_BROADPHASE_H
 #define BT_DBVT_BROADPHASE_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/BroadphaseCollision/btDbvt.h"
 #include "BulletCollision/BroadphaseCollision/btOverlappingPairCache.h"
 
@@ -39,7 +41,7 @@ subject to the following restrictions:
 //
 // btDbvtProxy
 //
-struct btDbvtProxy : btBroadphaseProxy
+struct BULLET_COLLISION_EXPORT btDbvtProxy : btBroadphaseProxy
 {
 	/* Fields		*/ 
 	//btDbvtAabbMm	aabb;
@@ -59,7 +61,7 @@ typedef btAlignedObjectArray<btDbvtProxy*>	btDbvtProxyArray;
 ///The btDbvtBroadphase implements a broadphase using two dynamic AABB bounding volume hierarchies/trees (see btDbvt).
 ///One tree is used for static/non-moving objects, and another tree is used for dynamic objects. Objects can move from one tree to the other.
 ///This is a very fast broadphase, especially for very dynamic worlds where many objects are moving. Its insert/add and remove of objects is generally faster than the sweep and prune broadphases btAxisSweep3 and bt32BitAxisSweep3.
-struct	btDbvtBroadphase : btBroadphaseInterface
+struct BULLET_COLLISION_EXPORT	btDbvtBroadphase : btBroadphaseInterface
 {
 	/* Config		*/ 
 	enum	{

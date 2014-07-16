@@ -16,15 +16,15 @@ subject to the following restrictions:
 #ifndef BT_HASHED_SIMPLE_PAIR_CACHE_H
 #define BT_HASHED_SIMPLE_PAIR_CACHE_H
 
-
+#include "../bullet_collision_config.h"
 
 #include "LinearMath/btAlignedObjectArray.h"
 
 const int BT_SIMPLE_NULL_PAIR=0xffffffff;
 
-struct btSimplePair
+struct BULLET_COLLISION_EXPORT btSimplePair
 {
-	btSimplePair(int indexA,int indexB)
+	btSimplePair(int indexA=0,int indexB=0)
 		:m_indexA(indexA),
 		m_indexB(indexB),
 		m_userPointer(0)
@@ -52,7 +52,7 @@ extern int gFindSimplePairs;
 
 
 
-class btHashedSimplePairCache
+class BULLET_COLLISION_EXPORT btHashedSimplePairCache
 {
 	btSimplePairArray	m_overlappingPairArray;
 	
