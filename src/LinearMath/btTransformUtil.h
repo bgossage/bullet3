@@ -37,7 +37,7 @@ SIMD_FORCE_INLINE btVector3 btAabbSupport(const btVector3& halfExtents,const btV
 
 
 /// Utils related to temporal transforms
-class LINEAR_MATH_EXPORT btTransformUtil
+class  btTransformUtil
 {
 
 public:

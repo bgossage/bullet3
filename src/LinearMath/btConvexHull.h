@@ -183,7 +183,7 @@ public:
 
 ///The HullLibrary class can create a convex hull from a collection of vertices, using the ComputeHull method.
 ///The btShapeHull class uses this HullLibrary to create a approximate convex mesh given a general (non-polyhedral) convex shape.
-class HullLibrary
+class LINEAR_MATH_EXPORT HullLibrary
 {
 
 	btAlignedObjectArray<class btHullTriangle*> m_tris;

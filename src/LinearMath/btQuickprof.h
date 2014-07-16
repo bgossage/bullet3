@@ -15,6 +15,8 @@
 #ifndef BT_QUICK_PROF_H
 #define BT_QUICK_PROF_H
 
+#include "linear_math_config.h"
+
 //To disable built-in profiling, please comment out next line
 //#define BT_NO_PROFILE 1
 #ifndef BT_NO_PROFILE
@@ -32,7 +34,7 @@
 #ifdef USE_BT_CLOCK
 
 ///The btClock is a portable basic clock that measures accurate time in seconds, use for profiling.
-class btClock
+class LINEAR_MATH_EXPORT  btClock
 {
 public:
 	btClock();
@@ -62,7 +64,7 @@ private:
 
 
 ///A node in the Profile Hierarchy Tree
-class	CProfileNode {
+class	LINEAR_MATH_EXPORT CProfileNode {
 
 public:
 	CProfileNode( const char * name, CProfileNode * parent );
@@ -99,7 +101,7 @@ protected:
 };
 
 ///An iterator to navigate through the tree
-class CProfileIterator
+class LINEAR_MATH_EXPORT CProfileIterator
 {
 public:
 	// Access all the children of the current parent
@@ -138,7 +140,7 @@ protected:
 
 
 ///The Manager for the Profile system
-class	CProfileManager {
+class	LINEAR_MATH_EXPORT CProfileManager {
 public:
 	static	void						Start_Profile( const char * name );
 	static	void						Stop_Profile( void );
@@ -174,7 +176,8 @@ private:
 
 ///ProfileSampleClass is a simple way to profile a function's scope
 ///Use the BT_PROFILE macro at the start of scope to time
-class	CProfileSample {
+class	LINEAR_MATH_EXPORT CProfileSample
+{
 public:
 	CProfileSample( const char * name )
 	{ 
@@ -185,7 +188,7 @@ public:
 	{ 
 		CProfileManager::Stop_Profile(); 
 	}
-};
+};// end class CProfileSample
 
 
 #define	BT_PROFILE( name )			CProfileSample __profile( name )
