@@ -129,7 +129,7 @@ subject to the following restrictions:
 //
 
 /* btDbvtAabbMm			*/ 
-struct	btDbvtAabbMm
+struct BULLET_COLLISION_EXPORT	btDbvtAabbMm
 {
 	DBVT_INLINE btVector3			Center() const	{ return((mi+mx)/2); }
 	DBVT_INLINE btVector3			Lengths() const	{ return(mx-mi); }
@@ -176,7 +176,7 @@ private:
 typedef	btDbvtAabbMm	btDbvtVolume;
 
 /* btDbvtNode				*/ 
-struct	btDbvtNode
+struct BULLET_COLLISION_EXPORT	btDbvtNode
 {
 	btDbvtVolume	volume;
 	btDbvtNode*		parent;
@@ -193,7 +193,7 @@ struct	btDbvtNode
 ///The btDbvt class implements a fast dynamic bounding volume tree based on axis aligned bounding boxes (aabb tree).
 ///This btDbvt is used for soft body collision detection and for the btDbvtBroadphase. It has a fast insert, remove and update of nodes.
 ///Unlike the btQuantizedBvh, nodes can be dynamically moved around, which allows for change in topology of the underlying data structure.
-struct	btDbvt
+struct BULLET_COLLISION_EXPORT	btDbvt
 {
 	/* Stack element	*/ 
 	struct	sStkNN

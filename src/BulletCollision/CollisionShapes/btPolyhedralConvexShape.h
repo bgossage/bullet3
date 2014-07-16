@@ -72,7 +72,7 @@ public:
 
 
 ///The btPolyhedralConvexAabbCachingShape adds aabb caching to the btPolyhedralConvexShape
-class btPolyhedralConvexAabbCachingShape : public btPolyhedralConvexShape
+class BULLET_COLLISION_EXPORT  btPolyhedralConvexAabbCachingShape : public btPolyhedralConvexShape
 {
 
 	btVector3	m_localAabbMin;

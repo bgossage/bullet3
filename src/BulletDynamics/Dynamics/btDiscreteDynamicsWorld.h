@@ -17,6 +17,8 @@ subject to the following restrictions:
 #ifndef BT_DISCRETE_DYNAMICS_WORLD_H
 #define BT_DISCRETE_DYNAMICS_WORLD_H
 
+#include "../bullet_dynamics_config.h"
+
 #include "btDynamicsWorld.h"
 
 class btDispatcher;
@@ -34,7 +36,7 @@ struct InplaceSolverIslandCallback;
 
 ///btDiscreteDynamicsWorld provides discrete rigid body simulation
 ///those classes replace the obsolete CcdPhysicsEnvironment/CcdPhysicsController
-ATTRIBUTE_ALIGNED16(class) btDiscreteDynamicsWorld : public btDynamicsWorld
+ATTRIBUTE_ALIGNED16(class) BULLET_DYNAMICS_EXPORT btDiscreteDynamicsWorld : public btDynamicsWorld
 {
 protected:
 	
