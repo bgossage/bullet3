@@ -26,7 +26,7 @@ subject to the following restrictions:
       #define BULLET_SOFTBODY_EXPORT __declspec( dllimport )
    #endif
 #else
-   #define BULLET_DYNAMICS_EXPORT
+   #define BULLET_SOFTBODY_EXPORT
 #endif
 
 
