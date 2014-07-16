@@ -17,10 +17,12 @@ subject to the following restrictions:
 #ifndef BT_HASH_MAP_H
 #define BT_HASH_MAP_H
 
+#include "linear_math_config.h"
+
 #include "btAlignedObjectArray.h"
 
 ///very basic hashable string implementation, compatible with btHashMap
-struct btHashString
+struct LINEAR_MATH_EXPORT btHashString
 {
 	const char* m_string;
 	unsigned int	m_hash;

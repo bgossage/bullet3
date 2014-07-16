@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_COLLISION_SHAPE_H
 #define BT_COLLISION_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btTransform.h"
 #include "LinearMath/btVector3.h"
 #include "LinearMath/btMatrix3x3.h"
@@ -24,7 +26,7 @@ class btSerializer;
 
 
 ///The btCollisionShape class provides an interface for collision shapes that can be shared among btCollisionObjects.
-ATTRIBUTE_ALIGNED16(class) btCollisionShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btCollisionShape
 {
 protected:
 	int m_shapeType;
@@ -156,7 +158,7 @@ public:
 };	
 
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
-struct	btCollisionShapeData
+struct BULLET_COLLISION_EXPORT btCollisionShapeData
 {
 	char	*m_name;
 	int		m_shapeType;

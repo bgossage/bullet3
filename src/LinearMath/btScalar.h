@@ -17,6 +17,8 @@ subject to the following restrictions:
 #ifndef BT_SCALAR_H
 #define BT_SCALAR_H
 
+#include "linear_math_config.h"
+
 #ifdef BT_MANAGED_CODE
 //Aligned data types not supported in managed code
 #pragma unmanaged
@@ -704,7 +706,7 @@ SIMD_FORCE_INLINE btScalar btNormalizeAngle(btScalar angleInRadians)
 
 
 ///rudimentary class to provide type info
-struct btTypedObject
+struct LINEAR_MATH_EXPORT btTypedObject
 {
 	btTypedObject(int objectType)
 		:m_objectType(objectType)
@@ -720,7 +722,8 @@ struct btTypedObject
 
   
 ///align a pointer to the provided alignment, upwards
-template <typename T>T* btAlignPointer(T* unalignedPtr, size_t alignment)
+template <typename T>
+T* btAlignPointer(T* unalignedPtr, size_t alignment)
 {
 		
 	struct btConvertPointerSizeT

@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_TRANSFORM_UTIL_H
 #define BT_TRANSFORM_UTIL_H
 
+#include "linear_math_config.h"
+
 #include "btTransform.h"
 #define ANGULAR_MOTION_THRESHOLD btScalar(0.5)*SIMD_HALF_PI
 
@@ -35,7 +37,7 @@ SIMD_FORCE_INLINE btVector3 btAabbSupport(const btVector3& halfExtents,const btV
 
 
 /// Utils related to temporal transforms
-class btTransformUtil
+class LINEAR_MATH_EXPORT btTransformUtil
 {
 
 public:
@@ -143,7 +145,7 @@ public:
 
 ///The btConvexSeparatingDistanceUtil can help speed up convex collision detection 
 ///by conservatively updating a cached separating distance/vector instead of re-calculating the closest distance
-class	btConvexSeparatingDistanceUtil
+class LINEAR_MATH_EXPORT btConvexSeparatingDistanceUtil
 {
 	btQuaternion	m_ornA;
 	btQuaternion	m_ornB;

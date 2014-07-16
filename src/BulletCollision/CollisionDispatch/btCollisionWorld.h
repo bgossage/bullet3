@@ -72,6 +72,8 @@ subject to the following restrictions:
 #ifndef BT_COLLISION_WORLD_H
 #define BT_COLLISION_WORLD_H
 
+#include "../bullet_collision_config.h"
+
 class btCollisionShape;
 class btConvexShape;
 class btBroadphaseInterface;
@@ -85,7 +87,7 @@ class btSerializer;
 #include "LinearMath/btAlignedObjectArray.h"
 
 ///CollisionWorld is interface and container for the collision detection
-class btCollisionWorld
+class BULLET_COLLISION_EXPORT btCollisionWorld
 {
 
 	

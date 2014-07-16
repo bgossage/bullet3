@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_TYPED_CONSTRAINT_H
 #define BT_TYPED_CONSTRAINT_H
 
+#include "../bullet_dynamics_config.h"
+
 
 #include "LinearMath/btScalar.h"
 #include "btSolverConstraint.h"
@@ -63,7 +65,7 @@ enum btConstraintParams
 #endif
 
 
-ATTRIBUTE_ALIGNED16(struct)	btJointFeedback
+ATTRIBUTE_ALIGNED16(struct)	BULLET_DYNAMICS_EXPORT btJointFeedback
 {
 	btVector3	m_appliedForceBodyA;
 	btVector3	m_appliedTorqueBodyA;
@@ -73,7 +75,7 @@ ATTRIBUTE_ALIGNED16(struct)	btJointFeedback
 
 
 ///TypedConstraint is the baseclass for Bullet constraints and vehicles
-ATTRIBUTE_ALIGNED16(class) btTypedConstraint : public btTypedObject
+ATTRIBUTE_ALIGNED16(class) BULLET_DYNAMICS_EXPORT btTypedConstraint : public btTypedObject
 {
 	int	m_userConstraintType;
 
@@ -366,7 +368,7 @@ SIMD_FORCE_INLINE btScalar btAdjustAngleToLimits(btScalar angleInRadians, btScal
 }
 
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
-struct	btTypedConstraintFloatData
+struct	BULLET_DYNAMICS_EXPORT btTypedConstraintFloatData
 {
 	btRigidBodyFloatData		*m_rbA;
 	btRigidBodyFloatData		*m_rbB;
@@ -393,7 +395,7 @@ struct	btTypedConstraintFloatData
 #define BT_BACKWARDS_COMPATIBLE_SERIALIZATION
 #ifdef BT_BACKWARDS_COMPATIBLE_SERIALIZATION
 ///this structure is not used, except for loading pre-2.82 .bullet files
-struct	btTypedConstraintData
+struct BULLET_DYNAMICS_EXPORT btTypedConstraintData
 {
 	btRigidBodyData		*m_rbA;
 	btRigidBodyData		*m_rbB;
@@ -416,7 +418,7 @@ struct	btTypedConstraintData
 };
 #endif //BACKWARDS_COMPATIBLE
 
-struct	btTypedConstraintDoubleData
+struct BULLET_DYNAMICS_EXPORT	btTypedConstraintDoubleData
 {
 	btRigidBodyDoubleData		*m_rbA;
 	btRigidBodyDoubleData		*m_rbB;
@@ -447,7 +449,7 @@ SIMD_FORCE_INLINE	int	btTypedConstraint::calculateSerializeBufferSize() const
 
 
 
-class btAngularLimit
+class BULLET_DYNAMICS_EXPORT btAngularLimit
 {
 private:
 	btScalar 

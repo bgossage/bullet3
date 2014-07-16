@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef _BT_ACTION_INTERFACE_H
 #define _BT_ACTION_INTERFACE_H
 
+#include "../bullet_dynamics_config.h"
+
 class btIDebugDraw;
 class btCollisionWorld;
 
@@ -23,7 +25,7 @@ class btCollisionWorld;
 #include "btRigidBody.h"
 
 ///Basic interface to allow actions such as vehicles and characters to be updated inside a btDynamicsWorld
-class btActionInterface
+class BULLET_DYNAMICS_EXPORT btActionInterface
 {
 protected:
 
