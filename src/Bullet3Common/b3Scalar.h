@@ -359,8 +359,9 @@ B3_FORCE_INLINE b3Scalar b3Fmod(b3Scalar x,b3Scalar y) { return fmod(x,y); }
 B3_FORCE_INLINE b3Scalar b3Sqrt(b3Scalar y) 
 { 
 #ifdef USE_APPROXIMATION
-    double x, z, tempf;
-    unsigned long *tfptr = ((unsigned long *)&tempf) + 1;
+    double x=0.0, z=0.0, tempf=0.0;
+    
+    uint64_t *tfptr = (reinterpret_cast<uint64_t*>(&tempf)) + 1;
 
 	tempf = y;
 	*tfptr = (0xbfcdd90a - *tfptr)>>1; /* estimate of 1/sqrt(y) */
