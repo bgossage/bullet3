@@ -38,6 +38,9 @@ class b3ConvexHullComputer
 				friend class b3ConvexHullComputer;
 
 			public:
+            Edge()
+            : next(0), reverse(0), targetVertex(0) {;}
+            
 				int getSourceVertex() const
 				{
 					return (this + reverse)->targetVertex;
