@@ -29,7 +29,10 @@ BulletPath = os.environ[ "BULLET" ]
 
 CppCheckPaths = \
    [ \
-   "src",
+   "src/BulletCollision",
+   "src/BulletDynamics",
+   "src/BulletSoftBody",
+   "src/LinearMath"
 
    ]
 
