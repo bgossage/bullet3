@@ -1960,7 +1960,7 @@ void b3ConvexHullInternal::compute(const void* coords, bool doubleCoords, int st
 	{
 		for (int i = 0; i < count; i++)
 		{
-			const float* v = (const float*) ptr;
+			const float* v = reinterpret_cast<const float*>( ptr );
 			b3Vector3 p = b3MakeVector3(v[0], v[1], v[2]);
 			ptr += stride;
 			min.setMin(p);
@@ -2020,7 +2020,7 @@ void b3ConvexHullInternal::compute(const void* coords, bool doubleCoords, int st
 	{
 		for (int i = 0; i < count; i++)
 		{
-			const float* v = (const float*) ptr;
+			const float* v = reinterpret_cast<const float*>( ptr );
 			b3Vector3 p = b3MakeVector3(v[0], v[1], v[2]);
 			ptr += stride;
 			p = (p - center) * s;
