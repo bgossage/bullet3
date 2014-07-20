@@ -357,9 +357,12 @@ public:
 	
 
 	
-
+   /**
+    * Constructor.
+    */
 		btDefaultSerializer(int totalSize=0)
-			:m_totalSize(totalSize),
+		:  m_uniqueIdGenerator(0),
+         m_totalSize(totalSize),
 			m_currentSize(0),
 			m_dna(0),
 			m_dnaLength(0),

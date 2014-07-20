@@ -30,7 +30,12 @@ protected:
 
 protected:
 	///only used for btCapsuleShapeZ and btCapsuleShapeX subclasses.
-	btCapsuleShape() : btConvexInternalShape() {m_shapeType = CAPSULE_SHAPE_PROXYTYPE;};
+	btCapsuleShape()
+   : btConvexInternalShape(),
+     m_upAxis(0)
+   { 
+      m_shapeType = CAPSULE_SHAPE_PROXYTYPE;
+   }
 
 public:
 	

@@ -27,10 +27,20 @@ struct btSimpleBroadphaseProxy : public btBroadphaseProxy
 //	int			m_handleId;
 
 	
-	btSimpleBroadphaseProxy() {};
+// Default constructor
+	btSimpleBroadphaseProxy()
+   : m_nextFree(0) {}
 
-	btSimpleBroadphaseProxy(const btVector3& minpt,const btVector3& maxpt,int shapeType,void* userPtr,short int collisionFilterGroup,short int collisionFilterMask,void* multiSapProxy)
-	:btBroadphaseProxy(minpt,maxpt,userPtr,collisionFilterGroup,collisionFilterMask,multiSapProxy)
+	btSimpleBroadphaseProxy( const btVector3& minpt,
+                            const btVector3& maxpt,
+                            int shapeType,
+                            void* userPtr,
+                            short int collisionFilterGroup,
+                            short int collisionFilterMask,
+                            void* multiSapProxy
+                          )
+	: btBroadphaseProxy(minpt,maxpt,userPtr,collisionFilterGroup,collisionFilterMask,multiSapProxy),
+     m_nextFree(0)
 	{
 		(void)shapeType;
 	}

@@ -46,9 +46,12 @@ struct btDbvtProxy : btBroadphaseProxy
 	btDbvtNode*		leaf;
 	btDbvtProxy*	links[2];
 	int				stage;
-	/* ctor			*/ 
-	btDbvtProxy(const btVector3& aabbMin,const btVector3& aabbMax,void* userPtr,short int collisionFilterGroup, short int collisionFilterMask) :
-	btBroadphaseProxy(aabbMin,aabbMax,userPtr,collisionFilterGroup,collisionFilterMask)
+
+	/** ctor			*/ 
+	btDbvtProxy(const btVector3& aabbMin,const btVector3& aabbMax,void* userPtr,short int collisionFilterGroup, short int collisionFilterMask)
+   :	btBroadphaseProxy(aabbMin,aabbMax,userPtr,collisionFilterGroup,collisionFilterMask),
+     leaf(0),
+     stage(0)
 	{
 		links[0]=links[1]=0;
 	}

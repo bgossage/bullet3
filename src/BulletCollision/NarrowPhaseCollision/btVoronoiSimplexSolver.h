@@ -29,10 +29,17 @@ subject to the following restrictions:
 #define VORONOI_DEFAULT_EQUAL_VERTEX_THRESHOLD 0.0001f
 
 
-struct btUsageBitfield{
+struct btUsageBitfield {
 	btUsageBitfield()
+   : usedVertexA(0),
+	  usedVertexB(0),
+	  usedVertexC(0),
+	  usedVertexD(0),
+	  unused1(0),
+	  unused2(0),
+	  unused3(0),
+	  unused4(0)
 	{
-		reset();
 	}
 
 	void reset()

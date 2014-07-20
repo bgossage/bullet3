@@ -118,6 +118,10 @@ class RemovePairContainingProxy
 	virtual ~RemovePairContainingProxy()
 	{
 	}
+public:
+   RemovePairContainingProxy()
+      : m_targetProxy(0) {}
+
 protected:
 	virtual bool processOverlap(btBroadphasePair& pair)
 	{

@@ -47,9 +47,16 @@ void	btConvexConcaveCollisionAlgorithm::getAllContactManifolds(btManifoldArray&	
 }
 
 
-btConvexTriangleCallback::btConvexTriangleCallback(btDispatcher*  dispatcher,const btCollisionObjectWrapper* body0Wrap,const btCollisionObjectWrapper* body1Wrap,bool isSwapped):
-	  m_dispatcher(dispatcher),
-	m_dispatchInfoPtr(0)
+btConvexTriangleCallback::btConvexTriangleCallback( btDispatcher*  dispatcher,
+                                                   const btCollisionObjectWrapper* body0Wrap,
+                                                   const btCollisionObjectWrapper* body1Wrap,
+                                                   bool isSwapped
+                                                   )
+: m_resultOut(0),
+  m_dispatcher(dispatcher),
+  m_dispatchInfoPtr(0),
+  m_collisionMarginTriangle(0.0),
+  m_triangleCount(0)
 {
 	m_convexBodyWrap = isSwapped? body1Wrap:body0Wrap;
 	m_triBodyWrap = isSwapped? body0Wrap:body1Wrap;

@@ -43,10 +43,18 @@ class btManifoldPoint
 	{
 		public:
 			btManifoldPoint()
-				:m_userPersistentData(0),
+			:	m_distance1(0.0),
+			   m_combinedFriction(0.0),
+				m_combinedRollingFriction(0.0),
+				m_combinedRestitution(0.0),
+            m_partId0(0),
+			   m_partId1(0),
+			   m_index0(0),
+			   m_index1(0),
+            m_userPersistentData(0),
 				m_lateralFrictionInitialized(false),
-                m_appliedImpulse(0.f),
-                m_appliedImpulseLateral1(0.f),
+            m_appliedImpulse(0.f),
+            m_appliedImpulseLateral1(0.f),
 				m_appliedImpulseLateral2(0.f),
 				m_contactMotion1(0.f),
 				m_contactMotion2(0.f),
@@ -56,8 +64,9 @@ class btManifoldPoint
 			{
 			}
 
-			btManifoldPoint( const btVector3 &pointA, const btVector3 &pointB, 
-					const btVector3 &normal, 
+			btManifoldPoint( const btVector3 &pointA,
+                          const btVector3 &pointB, 
+					           const btVector3 &normal, 
 					btScalar distance ) :
 					m_localPointA( pointA ), 
 					m_localPointB( pointB ), 
@@ -66,10 +75,14 @@ class btManifoldPoint
 					m_combinedFriction(btScalar(0.)),
 					m_combinedRollingFriction(btScalar(0.)),
 					m_combinedRestitution(btScalar(0.)),
+               m_partId0(0),
+			      m_partId1(0),
+			      m_index0(0),
+			      m_index1(0),
 					m_userPersistentData(0),
 					m_lateralFrictionInitialized(false),
-                    m_appliedImpulse(0.f),
-                    m_appliedImpulseLateral1(0.f),
+               m_appliedImpulse(0.f),
+               m_appliedImpulseLateral1(0.f),
 					m_appliedImpulseLateral2(0.f),
 					m_contactMotion1(0.f),
 					m_contactMotion2(0.f),
