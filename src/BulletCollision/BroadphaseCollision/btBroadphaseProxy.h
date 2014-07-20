@@ -115,7 +115,12 @@ BT_DECLARE_ALIGNED_ALLOCATOR();
 	}
 
 	//used for memory pools
-	btBroadphaseProxy() :m_clientObject(0),m_multiSapParentProxy(0)
+	btBroadphaseProxy()
+      : m_clientObject(0),
+        m_collisionFilterGroup(0),
+        m_collisionFilterMask(0),
+        m_multiSapParentProxy(0),
+        m_uniqueId(0)
 	{
 	}
 
