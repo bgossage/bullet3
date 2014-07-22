@@ -31,7 +31,9 @@ class btBox2dBox2dCollisionAlgorithm : public btActivatingCollisionAlgorithm
 	
 public:
 	btBox2dBox2dCollisionAlgorithm(const btCollisionAlgorithmConstructionInfo& ci)
-		: btActivatingCollisionAlgorithm(ci) {}
+		: btActivatingCollisionAlgorithm(ci),
+        m_ownManifold(false),
+        m_manifoldPtr(0) {}
 
 	virtual void processCollision (const btCollisionObjectWrapper* body0Wrap,const btCollisionObjectWrapper* body1Wrap,const btDispatcherInfo& dispatchInfo,btManifoldResult* resultOut);
 

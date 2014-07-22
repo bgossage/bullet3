@@ -33,8 +33,15 @@ btRigidBody& btActionInterface::getFixedBody()
 }
 
 btRaycastVehicle::btRaycastVehicle(const btVehicleTuning& tuning,btRigidBody* chassis,	btVehicleRaycaster* raycaster )
-:m_vehicleRaycaster(raycaster),
-m_pitchControl(btScalar(0.))
+: m_vehicleRaycaster(raycaster),
+  m_userConstraintType(0),
+  m_userConstraintId(0),
+  m_tau(0.0),
+  m_damping(0.0),
+  m_pitchControl(0.0),
+  m_steeringValue(0.0),
+  m_currentVehicleSpeedKmHour(0)
+  
 {
 	m_chassisBody = chassis;
 	m_indexRightAxis = 0;
@@ -44,9 +51,8 @@ m_pitchControl(btScalar(0.))
 }
 
 
-void btRaycastVehicle::defaultInit(const btVehicleTuning& tuning)
+void btRaycastVehicle::defaultInit(const btVehicleTuning& /*tuning*/)
 {
-	(void)tuning;
 	m_currentVehicleSpeedKmHour = btScalar(0.);
 	m_steeringValue = btScalar(0.);
 	

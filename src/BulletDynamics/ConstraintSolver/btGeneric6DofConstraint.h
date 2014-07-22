@@ -90,24 +90,9 @@ public:
         m_currentLimit = 0;
         m_currentLimitError = 0;
         m_enableMotor = false;
-    }
+        m_currentPosition = 0;
 
-    btRotationalLimitMotor(const btRotationalLimitMotor & limot)
-    {
-        m_targetVelocity = limot.m_targetVelocity;
-        m_maxMotorForce = limot.m_maxMotorForce;
-        m_limitSoftness = limot.m_limitSoftness;
-        m_loLimit = limot.m_loLimit;
-        m_hiLimit = limot.m_hiLimit;
-		m_normalCFM = limot.m_normalCFM;
-		m_stopERP = limot.m_stopERP;
-		m_stopCFM =	limot.m_stopCFM;
-        m_bounce = limot.m_bounce;
-        m_currentLimit = limot.m_currentLimit;
-        m_currentLimitError = limot.m_currentLimitError;
-        m_enableMotor = limot.m_enableMotor;
     }
-
 
 
 	//! Is limited
@@ -168,6 +153,8 @@ public:
 		m_stopERP.setValue(0.2f, 0.2f, 0.2f);
 		m_stopCFM.setValue(0.f, 0.f, 0.f);
 
+
+
     	m_limitSoftness = 0.7f;
     	m_damping = btScalar(1.0f);
     	m_restitution = btScalar(0.5f);
@@ -176,8 +163,11 @@ public:
 			m_enableMotor[i] = false;
 			m_targetVelocity[i] = btScalar(0.f);
 			m_maxMotorForce[i] = btScalar(0.f);
+         m_currentLimit[i] = 0;
 		}
-    }
+
+
+    }// end constructor
 
     btTranslationalLimitMotor(const btTranslationalLimitMotor & other )
     {
@@ -197,6 +187,7 @@ public:
 			m_enableMotor[i] = other.m_enableMotor[i];
 			m_targetVelocity[i] = other.m_targetVelocity[i];
 			m_maxMotorForce[i] = other.m_maxMotorForce[i];
+         m_currentLimit[i] = 0;
 		}
     }
 

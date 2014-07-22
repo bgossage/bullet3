@@ -140,7 +140,10 @@ public:
 public:
 
 	btVoronoiSimplexSolver()
-		:  m_equalVertexThreshold(VORONOI_DEFAULT_EQUAL_VERTEX_THRESHOLD)
+		: m_numVertices(0),
+        m_equalVertexThreshold(VORONOI_DEFAULT_EQUAL_VERTEX_THRESHOLD),
+        m_cachedValidClosest(false),
+        m_needsUpdate(false)
 	{
 	}
 	 void reset();

@@ -124,14 +124,21 @@ BT_DECLARE_ALIGNED_ALLOCATOR();
 	{
 	}
 
-	btBroadphaseProxy(const btVector3& aabbMin,const btVector3& aabbMax,void* userPtr,short int collisionFilterGroup, short int collisionFilterMask,void* multiSapParentProxy=0)
-		:m_clientObject(userPtr),
+	btBroadphaseProxy( const btVector3& aabbMin,
+                      const btVector3& aabbMax,
+                      void* userPtr,
+                      short int collisionFilterGroup,
+                      short int collisionFilterMask,
+                      void* multiSapParentProxy=0
+                     )
+	:  m_clientObject(userPtr),
 		m_collisionFilterGroup(collisionFilterGroup),
 		m_collisionFilterMask(collisionFilterMask),
+      m_multiSapParentProxy(multiSapParentProxy),
+      m_uniqueId(0),
 		m_aabbMin(aabbMin),
 		m_aabbMax(aabbMax)
 	{
-		m_multiSapParentProxy = multiSapParentProxy;
 	}
 
 	

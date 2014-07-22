@@ -39,6 +39,12 @@ struct btWheelInfo
 {
 	struct RaycastInfo
 	{
+      RaycastInfo()
+         : m_suspensionLength(0),
+           m_isInContact(false),
+           m_groundObject(0)
+      {}
+
 		//set by raycaster
 		btVector3	m_contactNormalWS;//contactnormal
 		btVector3	m_contactPointWS;//raycast hitpoint
@@ -80,7 +86,11 @@ struct btWheelInfo
 	void*		m_clientInfo;//can be used to store pointer to sync transforms...
 
 	btWheelInfo(btWheelInfoConstructionInfo& ci)
-
+      : m_clientInfo(0),
+        m_clippedInvContactDotSuspension(0),
+        m_suspensionRelativeVelocity(0),
+        m_wheelsSuspensionForce(0),
+        m_skidInfo(0)
 	{
 
 		m_suspensionRestLength1 = ci.m_suspensionRestLength;
