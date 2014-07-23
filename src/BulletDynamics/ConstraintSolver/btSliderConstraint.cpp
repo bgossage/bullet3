@@ -81,11 +81,18 @@ void btSliderConstraint::initParams()
 
 
 btSliderConstraint::btSliderConstraint(btRigidBody& rbA, btRigidBody& rbB, const btTransform& frameInA, const btTransform& frameInB, bool useLinearReferenceFrameA)
-        : btTypedConstraint(SLIDER_CONSTRAINT_TYPE, rbA, rbB),
-		m_useSolveConstraintObsolete(false),
-		m_frameInA(frameInA),
-        m_frameInB(frameInB),
-		m_useLinearReferenceFrameA(useLinearReferenceFrameA)
+: btTypedConstraint(SLIDER_CONSTRAINT_TYPE, rbA, rbB),
+  m_useSolveConstraintObsolete(false),
+  m_frameInA(frameInA),
+  m_frameInB(frameInB),
+  m_useLinearReferenceFrameA(useLinearReferenceFrameA),
+  m_solveLinLim(false),
+  m_solveAngLim(false),
+  m_timeStep(0),
+  m_linPos(0),
+  m_angPos(0),
+  m_angDepth(0),
+  m_kAngle(0)
 {
 	initParams();
 }
@@ -93,10 +100,15 @@ btSliderConstraint::btSliderConstraint(btRigidBody& rbA, btRigidBody& rbB, const
 
 
 btSliderConstraint::btSliderConstraint(btRigidBody& rbB, const btTransform& frameInB, bool useLinearReferenceFrameA)
-        : btTypedConstraint(SLIDER_CONSTRAINT_TYPE, getFixedBody(), rbB),
-		m_useSolveConstraintObsolete(false),
-		m_frameInB(frameInB),
-		m_useLinearReferenceFrameA(useLinearReferenceFrameA)
+: btTypedConstraint(SLIDER_CONSTRAINT_TYPE, getFixedBody(), rbB),
+  m_useSolveConstraintObsolete(false),
+  m_frameInB(frameInB),
+  m_useLinearReferenceFrameA(useLinearReferenceFrameA),
+  m_timeStep(0),
+  m_linPos(0),
+  m_angPos(0),
+  m_angDepth(0),
+  m_kAngle(0)
 {
 	///not providing rigidbody A means implicitly using worldspace for body A
 	m_frameInA = rbB.getCenterOfMassTransform() * m_frameInB;
