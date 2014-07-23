@@ -242,12 +242,15 @@ struct MultiBodyInplaceSolverIslandCallback : public btSimulationIslandManager::
 
 
 	MultiBodyInplaceSolverIslandCallback(	btMultiBodyConstraintSolver*	solver,
-									btDispatcher* dispatcher)
+									               btDispatcher* dispatcher
+                                       )
 		:m_solverInfo(NULL),
 		m_solver(solver),
-		m_multiBodySortedConstraints(NULL),
+		m_multiBodySortedConstraints(0),
+      m_numMultiBodyConstraints(0),
+      m_sortedConstraints(0),
 		m_numConstraints(0),
-		m_debugDrawer(NULL),
+		m_debugDrawer(0),
 		m_dispatcher(dispatcher)
 	{
 

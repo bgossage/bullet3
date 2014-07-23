@@ -23,18 +23,26 @@ subject to the following restrictions:
 
 
 btPoint2PointConstraint::btPoint2PointConstraint(btRigidBody& rbA,btRigidBody& rbB, const btVector3& pivotInA,const btVector3& pivotInB)
-:btTypedConstraint(POINT2POINT_CONSTRAINT_TYPE,rbA,rbB),m_pivotInA(pivotInA),m_pivotInB(pivotInB),
-m_flags(0),
-m_useSolveConstraintObsolete(false)
+:btTypedConstraint(POINT2POINT_CONSTRAINT_TYPE,rbA,rbB),
+ m_pivotInA(pivotInA),
+ m_pivotInB(pivotInB),
+ m_erp(0),
+ m_cfm(0),
+ m_flags(0),
+ m_useSolveConstraintObsolete(false)
 {
 
 }
 
 
 btPoint2PointConstraint::btPoint2PointConstraint(btRigidBody& rbA,const btVector3& pivotInA)
-:btTypedConstraint(POINT2POINT_CONSTRAINT_TYPE,rbA),m_pivotInA(pivotInA),m_pivotInB(rbA.getCenterOfMassTransform()(pivotInA)),
-m_flags(0),
-m_useSolveConstraintObsolete(false)
+:btTypedConstraint(POINT2POINT_CONSTRAINT_TYPE,rbA),
+ m_pivotInA(pivotInA),
+ m_pivotInB(rbA.getCenterOfMassTransform()(pivotInA)),
+ m_erp(0),
+ m_cfm(0),
+ m_flags(0),
+ m_useSolveConstraintObsolete(false)
 {
 	
 }

@@ -34,8 +34,9 @@ class btLemkeAlgorithm
 public:
  
 
-  btLemkeAlgorithm(const btMatrixXu& M_, const btVectorXu& q_, const int & DEBUGLEVEL_ = 0) :
-	  DEBUGLEVEL(DEBUGLEVEL_)
+  btLemkeAlgorithm(const btMatrixXu& M_, const btVectorXu& q_, const int & DEBUGLEVEL_ = 0)
+	:  DEBUGLEVEL(DEBUGLEVEL_),
+      steps(0), info(0)
   {
 	setSystem(M_, q_);
   }
@@ -44,14 +45,16 @@ public:
   /**
    * \brief return info of solution process
    */
-  int getInfo() {
+  int getInfo() const
+  {
 	return info;
   }
 
   /**
    * \brief get the number of steps until the solution was found
    */
-  int getSteps(void) {
+  int getSteps() const 
+  {
 	return steps;
   }
 
@@ -72,8 +75,7 @@ public:
    */
   btVectorXu solve(unsigned int maxloops = 0);
 
-  virtual ~btLemkeAlgorithm() {
-  }
+  virtual ~btLemkeAlgorithm() { }
 
 protected:
   int findLexicographicMinimum(const btMatrixXu &A, const int & pivotColIndex);
