@@ -70,13 +70,19 @@ struct	btSubSimplexClosestResult
 	btScalar	m_barycentricCoords[4];
 	bool m_degenerate;
 
+   btSubSimplexClosestResult()
+      : m_degenerate(false)
+   {
+      setBarycentricCoordinates(0,0,0,0);
+   }// end constructor 
+
 	void	reset()
 	{
 		m_degenerate = false;
 		setBarycentricCoordinates();
 		m_usedVertices.reset();
 	}
-	bool	isValid()
+	bool	isValid() const
 	{
 		bool valid = (m_barycentricCoords[0] >= btScalar(0.)) &&
 			(m_barycentricCoords[1] >= btScalar(0.)) &&
@@ -94,7 +100,7 @@ struct	btSubSimplexClosestResult
 		m_barycentricCoords[3] = d;
 	}
 
-};
+};// end class btSubSimplexClosestResult
 
 /// btVoronoiSimplexSolver is an implementation of the closest point distance algorithm from a 1-4 points simplex to the origin.
 /// Can be used with GJK, as an alternative to Johnson distance algorithm.
