@@ -169,28 +169,6 @@ public:
 
     }// end constructor
 
-    btTranslationalLimitMotor(const btTranslationalLimitMotor & other )
-    {
-    	m_lowerLimit = other.m_lowerLimit;
-    	m_upperLimit = other.m_upperLimit;
-    	m_accumulatedImpulse = other.m_accumulatedImpulse;
-
-    	m_limitSoftness = other.m_limitSoftness ;
-    	m_damping = other.m_damping;
-    	m_restitution = other.m_restitution;
-		m_normalCFM = other.m_normalCFM;
-		m_stopERP = other.m_stopERP;
-		m_stopCFM = other.m_stopCFM;
-
-		for(int i=0; i < 3; i++) 
-		{
-			m_enableMotor[i] = other.m_enableMotor[i];
-			m_targetVelocity[i] = other.m_targetVelocity[i];
-			m_maxMotorForce[i] = other.m_maxMotorForce[i];
-         m_currentLimit[i] = 0;
-		}
-    }
-
     //! Test limit
 	/*!
     - free means upper < lower,
@@ -198,11 +176,11 @@ public:
     - limited means upper > lower
     - limitIndex: first 3 are linear, next 3 are angular
     */
-    inline bool	isLimited(int limitIndex)
+    inline bool	isLimited(int limitIndex) const
     {
        return (m_upperLimit[limitIndex] >= m_lowerLimit[limitIndex]);
     }
-    inline bool needApplyForce(int limitIndex)
+    inline bool needApplyForce(int limitIndex)  const
     {
     	if(m_currentLimit[limitIndex] == 0 && m_enableMotor[limitIndex] == false) return false;
     	return true;
