@@ -69,7 +69,6 @@ void btSliderConstraint::initParams()
 	m_accumulatedAngMotorImpulse = btScalar(0.0);
 
 	m_flags = 0;
-	m_flags = 0;
 
 	m_useOffsetForConstraintFrame = USE_OFFSET_FOR_CONSTANT_FRAME;
 
