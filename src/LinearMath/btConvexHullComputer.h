@@ -31,13 +31,17 @@ class btConvexHullComputer
 		class Edge
 		{
 			private:
-				int next;
-				int reverse;
-				int targetVertex;
+				long next;
+				long reverse;
+				long targetVertex;
 
 				friend class btConvexHullComputer;
 
 			public:
+            Edge()
+               : next(0), reverse(0), targetVertex(0) {}
+
+
 				int getSourceVertex() const
 				{
 					return (this + reverse)->targetVertex;
@@ -62,7 +66,7 @@ class btConvexHullComputer
 				{
 					return this + reverse;
 				}
-		};
+		};// end class Edge
 
 
 		// Vertices of the output hull
@@ -96,7 +100,7 @@ class btConvexHullComputer
 		{
 			return compute(coords, true, stride, count, shrink, shrinkClamp);
 		}
-};
+};// end class btConvexHullComputer
 
 
 #endif //BT_CONVEX_HULL_COMPUTER_H

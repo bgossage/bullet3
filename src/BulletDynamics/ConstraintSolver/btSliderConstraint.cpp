@@ -70,6 +70,11 @@ void btSliderConstraint::initParams()
 
 	m_flags = 0;
 
+   for( size_t i=0; i<3; ++i )
+   {
+      m_jacLinDiagABInv[i] = 0;
+   }
+
 	m_useOffsetForConstraintFrame = USE_OFFSET_FOR_CONSTANT_FRAME;
 
 	calculateTransforms(m_rbA.getCenterOfMassTransform(),m_rbB.getCenterOfMassTransform());

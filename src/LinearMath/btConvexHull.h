@@ -56,7 +56,7 @@ enum HullFlag
 class HullDesc
 {
 public:
-	HullDesc(void)
+	HullDesc()
 	{
 		mFlags          = QF_DEFAULT;
 		mVcount         = 0;
@@ -68,9 +68,11 @@ public:
 	};
 
 	HullDesc(HullFlag flag,
-		 unsigned int vcount,
-		 const btVector3 *vertices,
-		 unsigned int stride = sizeof(btVector3))
+		      unsigned int vcount,
+		      const btVector3 *vertices,
+		      unsigned int stride = sizeof(btVector3)
+           )
+   : mMaxFaces(4096)
 	{
 		mFlags          = flag;
 		mVcount         = vcount;

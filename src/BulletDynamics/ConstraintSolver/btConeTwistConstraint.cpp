@@ -53,7 +53,9 @@ btConeTwistConstraint::btConeTwistConstraint( btRigidBody& rbA,btRigidBody& rbB,
 	m_accSwingLimitImpulse(0),
 	m_accTwistLimitImpulse(0),
    m_angularOnly(false),
-   m_useSolveConstraintObsolete(CONETWIST_USE_OBSOLETE_SOLVER)
+   m_useSolveConstraintObsolete(CONETWIST_USE_OBSOLETE_SOLVER),
+   m_swingLimitRatio(0),
+	m_twistLimitRatio(0)
 {
 	init();
 }
@@ -70,7 +72,9 @@ btConeTwistConstraint::btConeTwistConstraint( btRigidBody& rbA, const btTransfor
 	m_accSwingLimitImpulse(0),
 	m_accTwistLimitImpulse(0),
    m_angularOnly(false),
-   m_useSolveConstraintObsolete(CONETWIST_USE_OBSOLETE_SOLVER)
+   m_useSolveConstraintObsolete(CONETWIST_USE_OBSOLETE_SOLVER),
+   m_swingLimitRatio(0),
+	m_twistLimitRatio(0)
 {
 	m_rbBFrame = m_rbAFrame;
 	m_rbBFrame.setOrigin(btVector3(0., 0., 0.));
