@@ -34,9 +34,17 @@ subject to the following restrictions:
 
 
 
-btHingeConstraint::btHingeConstraint(btRigidBody& rbA,btRigidBody& rbB, const btVector3& pivotInA,const btVector3& pivotInB,
-									 const btVector3& axisInA,const btVector3& axisInB, bool useReferenceFrameA)
+btHingeConstraint::btHingeConstraint( btRigidBody& rbA,
+                                      btRigidBody& rbB,
+                                      const btVector3& pivotInA,
+                                      const btVector3& pivotInB,
+									           const btVector3& axisInA,
+                                      const btVector3& axisInB,
+                                      bool useReferenceFrameA
+                                    )
 									 :btTypedConstraint(HINGE_CONSTRAINT_TYPE, rbA,rbB),
+                             m_motorTargetVelocity(0),
+                             m_maxMotorImpulse(0),
 #ifdef _BT_USE_CENTER_LIMIT_
 									 m_limit(),
 #endif

@@ -54,12 +54,17 @@ public:
 
 	btManifoldResult()
     : m_manifoldPtr(0),
-      m_body0Wrap(), m_body1Wrap(0)
+      m_body0Wrap(), m_body1Wrap(0),
 #ifdef DEBUG_PART_INDEX
 	m_partId0(-1),
 	m_partId1(-1),
 	m_index0(-1),
 	m_index1(-1)
+#else
+	m_partId0(0),
+	m_partId1(0),
+	m_index0(0),
+	m_index1(0)
 #endif //DEBUG_PART_INDEX
 	{
 	}
