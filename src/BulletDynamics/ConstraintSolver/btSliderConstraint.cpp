@@ -103,6 +103,8 @@ btSliderConstraint::btSliderConstraint(btRigidBody& rbB, const btTransform& fram
   m_useSolveConstraintObsolete(false),
   m_frameInB(frameInB),
   m_useLinearReferenceFrameA(useLinearReferenceFrameA),
+  m_solveLinLim(false),
+  m_solveAngLim(false),
   m_timeStep(0),
   m_linPos(0),
   m_angPos(0),
