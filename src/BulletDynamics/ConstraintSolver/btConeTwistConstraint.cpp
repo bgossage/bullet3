@@ -65,6 +65,7 @@ void btConeTwistConstraint::init()
 	m_solveSwingLimit = false;
 	m_bMotorEnabled = false;
 	m_maxMotorImpulse = btScalar(-1);
+   m_bNormalizedMotorStrength = btScalar(0);
 
 	setLimit(btScalar(BT_LARGE_FLOAT), btScalar(BT_LARGE_FLOAT), btScalar(BT_LARGE_FLOAT));
 	m_damping = btScalar(0.01);
