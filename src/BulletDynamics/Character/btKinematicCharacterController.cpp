@@ -134,6 +134,7 @@ btVector3 btKinematicCharacterController::perpindicularComponent (const btVector
 
 btKinematicCharacterController::btKinematicCharacterController (btPairCachingGhostObject* ghostObject,btConvexShape* convexShape,btScalar stepHeight, int upAxis)
 {
+   m_halfHeight = 0.0;
 	m_upAxis = upAxis;
 	m_addedMargin = 0.02;
 	m_walkDirection.setValue(0,0,0);
@@ -149,6 +150,8 @@ btKinematicCharacterController::btKinematicCharacterController (btPairCachingGho
 	m_gravity = 9.8 * 3 ; // 3G acceleration.
 	m_fallSpeed = 55.0; // Terminal velocity of a sky diver in m/s.
 	m_jumpSpeed = 10.0; // ?
+   m_maxJumpHeight = 0.0;
+   m_touchingContact = false;
 	m_wasOnGround = false;
 	m_wasJumping = false;
 	m_interpolateUp = true;

@@ -47,7 +47,11 @@ public:
 
 	BT_DECLARE_ALIGNED_ALLOCATOR();
 
-	btNNCGConstraintSolver() : btSequentialImpulseConstraintSolver(), m_onlyForNoneContact(false) {}
+	btNNCGConstraintSolver()
+      : btSequentialImpulseConstraintSolver(),
+        m_deltafLengthSqrPrev(0),
+        m_onlyForNoneContact(false)
+      {}
 
 	virtual btConstraintSolverType getSolverType() const
 	{

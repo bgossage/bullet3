@@ -364,7 +364,9 @@ void	btSequentialImpulseConstraintSolver::resolveSplitPenetrationImpulseCacheFri
 
 
  btSequentialImpulseConstraintSolver::btSequentialImpulseConstraintSolver()
-	 :m_btSeed2(0),
+	:m_maxOverrideNumSolverIterations(0),
+    m_fixedBodyId(0),
+    m_btSeed2(0),
 	 m_resolveSingleConstraintRowGeneric(gResolveSingleConstraintRowGeneric_scalar_reference),
 	 m_resolveSingleConstraintRowLowerLimit(gResolveSingleConstraintRowLowerLimit_scalar_reference)
  {

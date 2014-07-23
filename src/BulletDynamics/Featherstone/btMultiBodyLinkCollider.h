@@ -86,7 +86,7 @@ public:
 		}
 		return true;
 	}
-};
+};// end class btMultiBodyLinkCollider
 
 #endif //BT_FEATHERSTONE_LINK_COLLIDER_H
 
