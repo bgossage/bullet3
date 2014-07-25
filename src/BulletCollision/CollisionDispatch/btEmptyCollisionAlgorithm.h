@@ -15,6 +15,9 @@ subject to the following restrictions:
 
 #ifndef BT_EMPTY_ALGORITH
 #define BT_EMPTY_ALGORITH
+
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/BroadphaseCollision/btCollisionAlgorithm.h"
 #include "btCollisionCreateFunc.h"
 #include "btCollisionDispatcher.h"
@@ -23,7 +26,7 @@ subject to the following restrictions:
 
 ///EmptyAlgorithm is a stub for unsupported collision pairs.
 ///The dispatcher can dispatch a persistent btEmptyAlgorithm to avoid a search every frame.
-class btEmptyAlgorithm : public btCollisionAlgorithm
+class BULLET_COLLISION_EXPORT btEmptyAlgorithm : public btCollisionAlgorithm
 {
 
 public:

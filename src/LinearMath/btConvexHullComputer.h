@@ -15,13 +15,15 @@ subject to the following restrictions:
 #ifndef BT_CONVEX_HULL_COMPUTER_H
 #define BT_CONVEX_HULL_COMPUTER_H
 
+#include "linear_math_config.h"
+
 #include "btVector3.h"
 #include "btAlignedObjectArray.h"
 
 /// Convex hull implementation based on Preparata and Hong
 /// See http://code.google.com/p/bullet/issues/detail?id=275
 /// Ole Kniemeyer, MAXON Computer GmbH
-class btConvexHullComputer
+class LINEAR_MATH_EXPORT btConvexHullComputer
 {
 	private:
 		btScalar compute(const void* coords, bool doubleCoords, int stride, int count, btScalar shrink, btScalar shrinkClamp);

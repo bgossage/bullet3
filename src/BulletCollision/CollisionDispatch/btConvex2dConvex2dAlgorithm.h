@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_CONVEX_2D_CONVEX_2D_ALGORITHM_H
 #define BT_CONVEX_2D_CONVEX_2D_ALGORITHM_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/CollisionDispatch/btActivatingCollisionAlgorithm.h"
 #include "BulletCollision/NarrowPhaseCollision/btGjkPairDetector.h"
 #include "BulletCollision/NarrowPhaseCollision/btPersistentManifold.h"
@@ -30,7 +32,7 @@ class btConvexPenetrationDepthSolver;
 
 ///The convex2dConvex2dAlgorithm collision algorithm support 2d collision detection for btConvex2dShape
 ///Currently it requires the btMinkowskiPenetrationDepthSolver, it has support for 2d penetration depth computation
-class btConvex2dConvex2dAlgorithm : public btActivatingCollisionAlgorithm
+class BULLET_COLLISION_EXPORT btConvex2dConvex2dAlgorithm : public btActivatingCollisionAlgorithm
 {
 	btSimplexSolverInterface*		m_simplexSolver;
 	btConvexPenetrationDepthSolver* m_pdSolver;

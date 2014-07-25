@@ -1,6 +1,8 @@
 #ifndef BT_COLLISION_OBJECT_WRAPPER_H
 #define BT_COLLISION_OBJECT_WRAPPER_H
 
+#include "../bullet_collision_config.h"
+
 ///btCollisionObjectWrapperis an internal data structure. 
 ///Most users can ignore this and use btCollisionObject and btCollisionShape instead
 class btCollisionShape;
@@ -14,7 +16,7 @@ class btTransform;
 		void operator delete(void*);
 
 struct btCollisionObjectWrapper;
-struct btCollisionObjectWrapper
+struct BULLET_COLLISION_EXPORT btCollisionObjectWrapper
 {
 BT_DECLARE_STACK_ONLY_OBJECT
 

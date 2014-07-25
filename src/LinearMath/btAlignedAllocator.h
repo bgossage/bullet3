@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_ALIGNED_ALLOCATOR
 #define BT_ALIGNED_ALLOCATOR
 
+#include "linear_math_config.h"
+
 ///we probably replace this with our own aligned memory allocator
 ///so we replace _aligned_malloc and _aligned_free with our own
 ///that is better portable and more predictable
@@ -30,13 +32,13 @@ subject to the following restrictions:
 #define btAlignedFree(ptr) \
 		btAlignedFreeInternal(ptr,__LINE__,__FILE__)
 
-void*	btAlignedAllocInternal	(size_t size, int alignment,int line,char* filename);
+LINEAR_MATH_EXPORT void*	btAlignedAllocInternal	(size_t size, int alignment,int line,char* filename);
 
-void	btAlignedFreeInternal	(void* ptr,int line,char* filename);
+LINEAR_MATH_EXPORT void	btAlignedFreeInternal	(void* ptr,int line,char* filename);
 
 #else
-	void*	btAlignedAllocInternal	(size_t size, int alignment);
-	void	btAlignedFreeInternal	(void* ptr);
+	LINEAR_MATH_EXPORT void*	btAlignedAllocInternal	(size_t size, int alignment);
+	LINEAR_MATH_EXPORT void	btAlignedFreeInternal	(void* ptr);
 
 	#define btAlignedAlloc(size,alignment) btAlignedAllocInternal(size,alignment)
 	#define btAlignedFree(ptr) btAlignedFreeInternal(ptr)
@@ -50,9 +52,9 @@ typedef void *(btAllocFunc)(size_t size);
 typedef void (btFreeFunc)(void *memblock);
 
 ///The developer can let all Bullet memory allocations go through a custom memory allocator, using btAlignedAllocSetCustom
-void btAlignedAllocSetCustom(btAllocFunc *allocFunc, btFreeFunc *freeFunc);
+LINEAR_MATH_EXPORT void btAlignedAllocSetCustom(btAllocFunc *allocFunc, btFreeFunc *freeFunc);
 ///If the developer has already an custom aligned allocator, then btAlignedAllocSetCustomAligned can be used. The default aligned allocator pre-allocates extra memory using the non-aligned allocator, and instruments it.
-void btAlignedAllocSetCustomAligned(btAlignedAllocFunc *allocFunc, btAlignedFreeFunc *freeFunc);
+LINEAR_MATH_EXPORT void btAlignedAllocSetCustomAligned(btAlignedAllocFunc *allocFunc, btAlignedFreeFunc *freeFunc);
 
 
 ///The btAlignedAllocator is a portable class for aligned memory allocations.

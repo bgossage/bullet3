@@ -15,11 +15,13 @@ subject to the following restrictions:
 #ifndef BT_SPHERE_MINKOWSKI_H
 #define BT_SPHERE_MINKOWSKI_H
 
+#include "../bullet_collision_config.h"
+
 #include "btConvexInternalShape.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseProxy.h" // for the types
 
 ///The btSphereShape implements an implicit sphere, centered around a local origin with radius.
-ATTRIBUTE_ALIGNED16(class) btSphereShape : public btConvexInternalShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btSphereShape : public btConvexInternalShape
 
 {
 	

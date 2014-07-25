@@ -20,8 +20,6 @@ subject to the following restrictions:
 
 #include "btSimplexSolverInterface.h"
 
-
-
 #define VORONOI_SIMPLEX_MAX_VERTS 5
 
 ///disable next define, or use defaultCollisionConfiguration->getSimplexSolver()->setEqualVertexThreshold(0.f) to disable/configure
@@ -29,7 +27,8 @@ subject to the following restrictions:
 #define VORONOI_DEFAULT_EQUAL_VERTEX_THRESHOLD 0.0001f
 
 
-struct btUsageBitfield {
+struct BULLET_COLLISION_EXPORT btUsageBitfield 
+{
 	btUsageBitfield()
    : usedVertexA(0),
 	  usedVertexB(0),
@@ -60,7 +59,7 @@ struct btUsageBitfield {
 };
 
 
-struct	btSubSimplexClosestResult
+struct BULLET_COLLISION_EXPORT	btSubSimplexClosestResult
 {
 	btVector3	m_closestPointOnSimplex;
 	//MASK for m_usedVertices
@@ -107,7 +106,7 @@ struct	btSubSimplexClosestResult
 #ifdef NO_VIRTUAL_INTERFACE
 ATTRIBUTE_ALIGNED16(class) btVoronoiSimplexSolver
 #else
-ATTRIBUTE_ALIGNED16(class) btVoronoiSimplexSolver : public btSimplexSolverInterface
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btVoronoiSimplexSolver : public btSimplexSolverInterface
 #endif
 {
 public:

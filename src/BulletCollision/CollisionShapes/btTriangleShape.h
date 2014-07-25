@@ -16,10 +16,12 @@ subject to the following restrictions:
 #ifndef BT_OBB_TRIANGLE_MINKOWSKI_H
 #define BT_OBB_TRIANGLE_MINKOWSKI_H
 
+#include "../bullet_collision_config.h"
+
 #include "btConvexShape.h"
 #include "btBoxShape.h"
 
-ATTRIBUTE_ALIGNED16(class) btTriangleShape : public btPolyhedralConvexShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btTriangleShape : public btPolyhedralConvexShape
 {
 
 

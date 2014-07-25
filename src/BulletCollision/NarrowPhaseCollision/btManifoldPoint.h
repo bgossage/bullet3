@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_MANIFOLD_CONTACT_POINT_H
 #define BT_MANIFOLD_CONTACT_POINT_H
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btVector3.h"
 #include "LinearMath/btTransformUtil.h"
 
@@ -39,7 +41,7 @@ typedef sce::PhysicsEffects::PfxConstraintRow btConstraintRow;
 
 /// ManifoldContactPoint collects and maintains persistent contactpoints.
 /// used to improve stability and performance of rigidbody dynamics response.
-class btManifoldPoint
+class BULLET_COLLISION_EXPORT btManifoldPoint
 	{
 		public:
 			btManifoldPoint()

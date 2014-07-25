@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_SPHERE_SPHERE_COLLISION_ALGORITHM_H
 #define BT_SPHERE_SPHERE_COLLISION_ALGORITHM_H
 
+#include "../bullet_collision_config.h"
+
 #include "btActivatingCollisionAlgorithm.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
 #include "BulletCollision/CollisionDispatch/btCollisionCreateFunc.h"
@@ -26,7 +28,7 @@ class btPersistentManifold;
 /// btSphereSphereCollisionAlgorithm  provides sphere-sphere collision detection.
 /// Other features are frame-coherency (persistent data) and collision response.
 /// Also provides the most basic sample for custom/user btCollisionAlgorithm
-class btSphereSphereCollisionAlgorithm : public btActivatingCollisionAlgorithm
+class BULLET_COLLISION_EXPORT btSphereSphereCollisionAlgorithm : public btActivatingCollisionAlgorithm
 {
 	bool	m_ownManifold;
 	btPersistentManifold*	m_manifoldPtr;

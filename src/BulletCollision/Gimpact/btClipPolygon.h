@@ -1,6 +1,8 @@
 #ifndef BT_CLIP_POLYGON_H_INCLUDED
 #define BT_CLIP_POLYGON_H_INCLUDED
 
+#include "../bullet_collision_config.h"
+
 /*! \file btClipPolygon.h
 \author Francisco Leon Najera
 */

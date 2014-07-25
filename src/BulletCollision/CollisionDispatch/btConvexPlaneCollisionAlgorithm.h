@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_CONVEX_PLANE_COLLISION_ALGORITHM_H
 #define BT_CONVEX_PLANE_COLLISION_ALGORITHM_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/BroadphaseCollision/btCollisionAlgorithm.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
 #include "BulletCollision/CollisionDispatch/btCollisionCreateFunc.h"
@@ -26,7 +28,7 @@ class btPersistentManifold;
 
 /// btSphereBoxCollisionAlgorithm  provides sphere-box collision detection.
 /// Other features are frame-coherency (persistent data) and collision response.
-class btConvexPlaneCollisionAlgorithm : public btCollisionAlgorithm
+class BULLET_COLLISION_EXPORT btConvexPlaneCollisionAlgorithm : public btCollisionAlgorithm
 {
 	bool		m_ownManifold;
 	btPersistentManifold*	m_manifoldPtr;

@@ -13,13 +13,15 @@ subject to the following restrictions:
 3. This notice may not be removed or altered from any source distribution.
 */
 
-#ifndef __BT_ACTIVATING_COLLISION_ALGORITHM_H
-#define __BT_ACTIVATING_COLLISION_ALGORITHM_H
+#ifndef INC_BT_ACTIVATING_COLLISION_ALGORITHM_H
+#define INC_BT_ACTIVATING_COLLISION_ALGORITHM_H
+
+#include "../bullet_collision_config.h"
 
 #include "BulletCollision/BroadphaseCollision/btCollisionAlgorithm.h"
 
 ///This class is not enabled yet (work-in-progress) to more aggressively activate objects.
-class btActivatingCollisionAlgorithm : public btCollisionAlgorithm
+class BULLET_COLLISION_EXPORT btActivatingCollisionAlgorithm : public btCollisionAlgorithm
 {
 //	btCollisionObject* m_colObj0;
 //	btCollisionObject* m_colObj1;

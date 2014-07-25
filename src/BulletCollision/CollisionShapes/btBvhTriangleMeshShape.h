@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_BVH_TRIANGLE_MESH_SHAPE_H
 #define BT_BVH_TRIANGLE_MESH_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 #include "btTriangleMeshShape.h"
 #include "btOptimizedBvh.h"
 #include "LinearMath/btAlignedAllocator.h"
@@ -31,7 +33,7 @@ subject to the following restrictions:
 ///It takes a triangle mesh as input, for example a btTriangleMesh or btTriangleIndexVertexArray. The btBvhTriangleMeshShape class allows for triangle mesh deformations by a refit or partialRefit method.
 ///Instead of building the bounding volume hierarchy acceleration structure, it is also possible to serialize (save) and deserialize (load) the structure from disk.
 ///See Demos\ConcaveDemo\ConcavePhysicsDemo.cpp for an example.
-ATTRIBUTE_ALIGNED16(class) btBvhTriangleMeshShape : public btTriangleMeshShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btBvhTriangleMeshShape : public btTriangleMeshShape
 {
 
 	btOptimizedBvh*	m_bvh;
@@ -117,7 +119,7 @@ public:
 };
 
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
-struct	btTriangleMeshShapeData
+struct BULLET_COLLISION_EXPORT	btTriangleMeshShapeData
 {
 	btCollisionShapeData	m_collisionShapeData;
 

@@ -18,6 +18,8 @@ subject to the following restrictions:
 #ifndef BT_GJK_CONVEX_CAST_H
 #define BT_GJK_CONVEX_CAST_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/CollisionShapes/btCollisionMargin.h"
 
 #include "LinearMath/btVector3.h"

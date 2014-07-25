@@ -17,7 +17,9 @@ subject to the following restrictions:
 #ifndef BT_GEN_LIST_H
 #define BT_GEN_LIST_H
 
-class btGEN_Link {
+#include "linear_math_config.h"
+
+class LINEAR_MATH_EXPORT btGEN_Link {
 public:
     btGEN_Link() : m_next(0), m_prev(0) {}
     btGEN_Link(btGEN_Link *next, btGEN_Link *prev) : m_next(next), m_prev(prev) {}
@@ -52,7 +54,7 @@ private:
     btGEN_Link  *m_prev;
 };
 
-class btGEN_List {
+class LINEAR_MATH_EXPORT btGEN_List {
 public:
     btGEN_List() : m_head(&m_tail, 0), m_tail(0, &m_head) {}
 

@@ -303,7 +303,6 @@ void btGImpactCollisionAlgorithm::gimpact_vs_gimpact_find_pairs(
 
 }
 
-
 void btGImpactCollisionAlgorithm::gimpact_vs_shape_find_pairs(
 					  const btTransform & trans0,
 					  const btTransform & trans1,

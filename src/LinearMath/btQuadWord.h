@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_SIMD_QUADWORD_H
 #define BT_SIMD_QUADWORD_H
 
+#include "linear_math_config.h"
+
 #include "btScalar.h"
 #include "btMinMax.h"
 
@@ -31,9 +33,9 @@ subject to the following restrictions:
  * Some issues under PS3 Linux with IBM 2.1 SDK, gcc compiler prevent from using aligned quadword.
  */
 #ifndef USE_LIBSPE2
-ATTRIBUTE_ALIGNED16(class) btQuadWord
+ATTRIBUTE_ALIGNED16(class) LINEAR_MATH_EXPORT btQuadWord
 #else
-class btQuadWord
+class LINEAR_MATH_EXPORT btQuadWord
 #endif
 {
 protected:

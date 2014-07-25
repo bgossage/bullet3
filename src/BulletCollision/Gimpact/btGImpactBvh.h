@@ -24,6 +24,7 @@ subject to the following restrictions:
 3. This notice may not be removed or altered from any source distribution.
 */
 
+#include "../bullet_collision_config.h"
 
 #include "LinearMath/btAlignedObjectArray.h"
 
@@ -35,12 +36,28 @@ subject to the following restrictions:
 
 
 //! Overlapping pair
-struct GIM_PAIR
+struct BULLET_COLLISION_EXPORT GIM_PAIR
 {
     int m_index1;
     int m_index2;
     GIM_PAIR()
     {}
+
+    bool operator < ( GIM_PAIR const& pair ) const
+    {
+       return m_index1 < pair.m_index1;
+    }
+
+    bool operator > ( GIM_PAIR const& pair ) const
+    {
+       return m_index1 > pair.m_index1;
+    }
+
+    bool operator == ( GIM_PAIR const& pair ) const
+    {
+       return m_index1 == pair.m_index1;
+    }
+
 
     GIM_PAIR(const GIM_PAIR & p)
     {
@@ -55,8 +72,9 @@ struct GIM_PAIR
 	}
 };
 
+
 //! A pairset array
-class btPairSet: public btAlignedObjectArray<GIM_PAIR>
+class BULLET_COLLISION_EXPORT btPairSet: public btAlignedObjectArray<GIM_PAIR>
 {
 public:
 	btPairSet()
@@ -76,7 +94,7 @@ public:
 
 
 ///GIM_BVH_DATA is an internal GIMPACT collision structure to contain axis aligned bounding box
-struct GIM_BVH_DATA
+struct BULLET_COLLISION_EXPORT GIM_BVH_DATA
 {
 	btAABB m_bound;
 	int m_data;
@@ -390,6 +408,7 @@ public:
 	static void find_collision(btGImpactBvh * boxset1, const btTransform & trans1,
 		btGImpactBvh * boxset2, const btTransform & trans2,
 		btPairSet & collision_pairs);
+
 };
 
 

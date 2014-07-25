@@ -15,6 +15,8 @@ subject to the following restrictions:
 #ifndef BT_MULTI_SAP_BROADPHASE
 #define BT_MULTI_SAP_BROADPHASE
 
+#include "../bullet_collision_config.h"
+
 #include "btBroadphaseInterface.h"
 #include "LinearMath/btAlignedObjectArray.h"
 #include "btOverlappingPairCache.h"
@@ -32,7 +34,7 @@ typedef btAlignedObjectArray<btBroadphaseInterface*> btSapBroadphaseArray;
 ///A btQuantizedBvh acceleration structures finds overlapping SAPs for each btBroadphaseProxy.
 ///See http://www.continuousphysics.com/Bullet/phpBB2/viewtopic.php?t=328
 ///and http://www.continuousphysics.com/Bullet/phpBB2/viewtopic.php?t=1329
-class btMultiSapBroadphase :public btBroadphaseInterface
+class BULLET_COLLISION_EXPORT btMultiSapBroadphase :public btBroadphaseInterface
 {
 	btSapBroadphaseArray	m_sapBroadphases;
 	

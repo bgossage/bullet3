@@ -1,6 +1,8 @@
 #ifndef POLARDECOMPOSITION_H
 #define POLARDECOMPOSITION_H
 
+#include "linear_math_config.h"
+
 #include "btMatrix3x3.h"
 
 /**
@@ -11,7 +13,7 @@
  * required to be a square 3x3 matrix with real elements. This means that U will
  * be an orthogonal matrix and H with be a positive-definite, symmetric matrix.
  */
-class btPolarDecomposition
+class LINEAR_MATH_EXPORT btPolarDecomposition
 {
   public:
     static const btScalar DEFAULT_TOLERANCE;

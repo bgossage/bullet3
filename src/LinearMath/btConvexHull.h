@@ -19,12 +19,14 @@ subject to the following restrictions:
 #ifndef BT_CD_HULL_H
 #define BT_CD_HULL_H
 
+#include "linear_math_config.h"
+
 #include "btVector3.h"
 #include "btAlignedObjectArray.h"
 
 typedef btAlignedObjectArray<unsigned int> TUIntArray;
 
-class HullResult
+class LINEAR_MATH_EXPORT HullResult
 {
 public:
 	HullResult(void)
@@ -183,7 +185,7 @@ public:
 
 ///The HullLibrary class can create a convex hull from a collection of vertices, using the ComputeHull method.
 ///The btShapeHull class uses this HullLibrary to create a approximate convex mesh given a general (non-polyhedral) convex shape.
-class HullLibrary
+class LINEAR_MATH_EXPORT HullLibrary
 {
 
 	btAlignedObjectArray<class btHullTriangle*> m_tris;

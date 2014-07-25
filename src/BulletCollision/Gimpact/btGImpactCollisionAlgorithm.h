@@ -24,6 +24,8 @@ subject to the following restrictions:
 #ifndef BT_GIMPACT_BVH_CONCAVE_COLLISION_ALGORITHM_H
 #define BT_GIMPACT_BVH_CONCAVE_COLLISION_ALGORITHM_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/CollisionDispatch/btActivatingCollisionAlgorithm.h"
 #include "BulletCollision/BroadphaseCollision/btDispatcher.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseInterface.h"
@@ -51,7 +53,7 @@ btCollisionDispatcher * dispatcher = static_cast<btCollisionDispatcher *>(m_dyna
 btGImpactCollisionAlgorithm::registerAlgorithm(dispatcher);
  \endcode
 */
-class btGImpactCollisionAlgorithm : public btActivatingCollisionAlgorithm
+class BULLET_COLLISION_EXPORT btGImpactCollisionAlgorithm : public btActivatingCollisionAlgorithm
 {
 protected:
 	btCollisionAlgorithm * m_convex_algorithm;
@@ -178,6 +180,7 @@ protected:
 					  const btTransform & trans1,
 					  const btGImpactShapeInterface * shape0,
 					  const btGImpactShapeInterface * shape1,btPairSet & pairset);
+
 
 	void gimpact_vs_shape_find_pairs(
 					  const btTransform & trans0,

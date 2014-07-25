@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_COLLISION__DISPATCHER_H
 #define BT_COLLISION__DISPATCHER_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/BroadphaseCollision/btDispatcher.h"
 #include "BulletCollision/NarrowPhaseCollision/btPersistentManifold.h"
 
@@ -40,7 +42,7 @@ typedef void (*btNearCallback)(btBroadphasePair& collisionPair, btCollisionDispa
 
 ///btCollisionDispatcher supports algorithms that handle ConvexConvex and ConvexConcave collision pairs.
 ///Time of Impact, Closest Points and Penetration Depth.
-class btCollisionDispatcher : public btDispatcher
+class BULLET_COLLISION_EXPORT btCollisionDispatcher : public btDispatcher
 {
 
 protected:

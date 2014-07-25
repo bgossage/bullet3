@@ -17,8 +17,11 @@ subject to the following restrictions:
 #ifndef BT_CONTINUOUS_COLLISION_CONVEX_CAST_H
 #define BT_CONTINUOUS_COLLISION_CONVEX_CAST_H
 
+#include "../bullet_collision_config.h"
+
 #include "btConvexCast.h"
 #include "btSimplexSolverInterface.h"
+
 class btConvexPenetrationDepthSolver;
 class btConvexShape;
 class btStaticPlaneShape;
@@ -27,7 +30,7 @@ class btStaticPlaneShape;
 /// Based on Brian Mirtich's Conservative Advancement idea (PhD thesis).
 /// Algorithm operates in worldspace, in order to keep inbetween motion globally consistent.
 /// It uses GJK at the moment. Future improvement would use minkowski sum / supporting vertex, merging innerloops
-class btContinuousConvexCollision : public btConvexCast
+class BULLET_COLLISION_EXPORT btContinuousConvexCollision : public btConvexCast
 {
 	btSimplexSolverInterface* m_simplexSolver;
 	btConvexPenetrationDepthSolver*	m_penetrationDepthSolver;

@@ -24,6 +24,8 @@ subject to the following restrictions:
 3. This notice may not be removed or altered from any source distribution.
 */
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btTransform.h"
 #include "LinearMath/btAlignedObjectArray.h"
 #include "btTriangleShapeEx.h"
@@ -39,7 +41,7 @@ Configuration var for applying interpolation of  contact normals
 
 ///The GIM_CONTACT is an internal GIMPACT structure, similar to btManifoldPoint.
 ///@todo: remove and replace GIM_CONTACT by btManifoldPoint.
-class GIM_CONTACT
+class BULLET_COLLISION_EXPORT GIM_CONTACT
 {
 public:
     btVector3 m_point;
@@ -105,10 +107,10 @@ public:
 		m_normal = vec_sum/btSqrt(vec_sum_len);
     }
 
-};
+};// end class GIM_CONTACT
 
-
-class btContactArray:public btAlignedObjectArray<GIM_CONTACT>
+/*
+class BULLET_COLLISION_EXPORT btContactArray:public btAlignedObjectArray<GIM_CONTACT>
 {
 public:
 	btContactArray()
@@ -140,6 +142,6 @@ public:
 
 	void merge_contacts_unique(const btContactArray & contacts);
 };
-
+*/
 
 #endif // GIM_CONTACT_H_INCLUDED

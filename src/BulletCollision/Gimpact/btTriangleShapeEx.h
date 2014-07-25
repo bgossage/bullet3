@@ -25,6 +25,8 @@ subject to the following restrictions:
 #ifndef GIMPACT_TRIANGLE_SHAPE_EX_H
 #define GIMPACT_TRIANGLE_SHAPE_EX_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/CollisionShapes/btCollisionShape.h"
 #include "BulletCollision/CollisionShapes/btTriangleShape.h"
 #include "btBoxCollision.h"
@@ -35,7 +37,7 @@ subject to the following restrictions:
 #define MAX_TRI_CLIPPING 16
 
 //! Structure for collision
-struct GIM_TRIANGLE_CONTACT
+struct BULLET_COLLISION_EXPORT GIM_TRIANGLE_CONTACT
 {
     btScalar m_penetration_depth;
     int m_point_count;
@@ -71,7 +73,7 @@ struct GIM_TRIANGLE_CONTACT
 
 
 
-class btPrimitiveTriangle
+class BULLET_COLLISION_EXPORT btPrimitiveTriangle
 {
 public:
 	btVector3 m_vertices[3];
@@ -132,7 +134,7 @@ public:
 /*!
 This class implements a better getAabb method than the previous btTriangleShape class
 */
-class btTriangleShapeEx: public btTriangleShape
+class BULLET_COLLISION_EXPORT btTriangleShapeEx: public btTriangleShape
 {
 public:
 

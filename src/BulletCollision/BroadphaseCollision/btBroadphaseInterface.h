@@ -16,7 +16,7 @@ subject to the following restrictions:
 #ifndef		BT_BROADPHASE_INTERFACE_H
 #define 	BT_BROADPHASE_INTERFACE_H
 
-
+#include "../bullet_collision_config.h"
 
 struct btDispatcherInfo;
 class btDispatcher;
@@ -26,14 +26,14 @@ class btOverlappingPairCache;
 
 
 
-struct	btBroadphaseAabbCallback
+struct BULLET_COLLISION_EXPORT	btBroadphaseAabbCallback
 {
 	virtual ~btBroadphaseAabbCallback() {}
 	virtual bool	process(const btBroadphaseProxy* proxy) = 0;
 };
 
 
-struct	btBroadphaseRayCallback : public btBroadphaseAabbCallback
+struct BULLET_COLLISION_EXPORT	btBroadphaseRayCallback : public btBroadphaseAabbCallback
 {
 	///added some cached data to accelerate ray-AABB tests
 	btVector3		m_rayDirectionInverse;
@@ -48,7 +48,7 @@ struct	btBroadphaseRayCallback : public btBroadphaseAabbCallback
 ///The btBroadphaseInterface class provides an interface to detect aabb-overlapping object pairs.
 ///Some implementations for this broadphase interface include btAxisSweep3, bt32BitAxisSweep3 and btDbvtBroadphase.
 ///The actual overlapping pair management, storage, adding and removing of pairs is dealt by the btOverlappingPairCache class.
-class btBroadphaseInterface
+class BULLET_COLLISION_EXPORT btBroadphaseInterface
 {
 public:
 	virtual ~btBroadphaseInterface() {}

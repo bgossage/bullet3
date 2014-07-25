@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_CONTACT_SOLVER_INFO
 #define BT_CONTACT_SOLVER_INFO
 
+#include "../bullet_dynamics_config.h"
+
 #include "LinearMath/btScalar.h"
 
 enum	btSolverMode
@@ -32,7 +34,7 @@ enum	btSolverMode
 	SOLVER_ALLOW_ZERO_LENGTH_FRICTION_DIRECTIONS = 1024
 };
 
-struct btContactSolverInfoData
+struct BULLET_DYNAMICS_EXPORT btContactSolverInfoData
 {
 	
 
@@ -62,7 +64,7 @@ struct btContactSolverInfoData
 
 };
 
-struct btContactSolverInfo : public btContactSolverInfoData
+struct BULLET_DYNAMICS_EXPORT btContactSolverInfo : public btContactSolverInfoData
 {
 
 	
@@ -95,7 +97,7 @@ struct btContactSolverInfo : public btContactSolverInfoData
 };
 
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
-struct btContactSolverInfoDoubleData
+struct BULLET_DYNAMICS_EXPORT btContactSolverInfoDoubleData
 {
 	double		m_tau;
 	double		m_damping;//global non-contact constraint damping, can be locally overridden by constraints during 'getInfo2'.
@@ -123,7 +125,7 @@ struct btContactSolverInfoDoubleData
 
 };
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
-struct btContactSolverInfoFloatData
+struct BULLET_DYNAMICS_EXPORT btContactSolverInfoFloatData
 {
 	float		m_tau;
 	float		m_damping;//global non-contact constraint damping, can be locally overridden by constraints during 'getInfo2'.

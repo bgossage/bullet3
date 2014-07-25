@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_BOX_2D_BOX_2D__COLLISION_ALGORITHM_H
 #define BT_BOX_2D_BOX_2D__COLLISION_ALGORITHM_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/CollisionDispatch/btActivatingCollisionAlgorithm.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
 #include "BulletCollision/BroadphaseCollision/btDispatcher.h"
@@ -24,7 +26,7 @@ subject to the following restrictions:
 class btPersistentManifold;
 
 ///box-box collision detection
-class btBox2dBox2dCollisionAlgorithm : public btActivatingCollisionAlgorithm
+class BULLET_COLLISION_EXPORT btBox2dBox2dCollisionAlgorithm : public btActivatingCollisionAlgorithm
 {
 	bool	m_ownManifold;
 	btPersistentManifold*	m_manifoldPtr;

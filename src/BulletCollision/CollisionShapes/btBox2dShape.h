@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_OBB_BOX_2D_SHAPE_H
 #define BT_OBB_BOX_2D_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/CollisionShapes/btPolyhedralConvexShape.h"
 #include "BulletCollision/CollisionShapes/btCollisionMargin.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
@@ -23,7 +25,7 @@ subject to the following restrictions:
 #include "LinearMath/btMinMax.h"
 
 ///The btBox2dShape is a box primitive around the origin, its sides axis aligned with length specified by half extents, in local shape coordinates. When used as part of a btCollisionObject or btRigidBody it will be an oriented box in world space.
-ATTRIBUTE_ALIGNED16(class) btBox2dShape: public btPolyhedralConvexShape
+ATTRIBUTE_ALIGNED16(class)  BULLET_COLLISION_EXPORT btBox2dShape: public btPolyhedralConvexShape
 {
 
 	//btVector3	m_boxHalfExtents1; //use m_implicitShapeDimensions instead
