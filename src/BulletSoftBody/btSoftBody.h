@@ -17,6 +17,8 @@ subject to the following restrictions:
 #ifndef _BT_SOFT_BODY_H
 #define _BT_SOFT_BODY_H
 
+#include "bullet_softbody_config.h"
+
 #include "LinearMath/btAlignedObjectArray.h"
 #include "LinearMath/btTransform.h"
 #include "LinearMath/btIDebugDraw.h"
@@ -40,7 +42,7 @@ class btDispatcher;
 class btSoftBodySolver;
 
 /* btSoftBodyWorldInfo	*/ 
-struct	btSoftBodyWorldInfo
+struct BULLET_SOFTBODY_EXPORT	btSoftBodyWorldInfo
 {
 	btScalar				air_density;
 	btScalar				water_density;

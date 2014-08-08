@@ -11,12 +11,14 @@
 #ifndef BT_WHEEL_INFO_H
 #define BT_WHEEL_INFO_H
 
+#include "../bullet_dynamics_config.h"
+
 #include "LinearMath/btVector3.h"
 #include "LinearMath/btTransform.h"
 
 class btRigidBody;
 
-struct btWheelInfoConstructionInfo
+struct BULLET_DYNAMICS_EXPORT btWheelInfoConstructionInfo
 {
 	btVector3	m_chassisConnectionCS;
 	btVector3	m_wheelDirectionCS;
@@ -35,7 +37,7 @@ struct btWheelInfoConstructionInfo
 };
 
 /// btWheelInfo contains information per wheel about friction and suspension.
-struct btWheelInfo
+struct BULLET_DYNAMICS_EXPORT btWheelInfo
 {
 	struct RaycastInfo
 	{
@@ -84,6 +86,32 @@ struct btWheelInfo
 	bool m_bIsFrontWheel;
 	
 	void*		m_clientInfo;//can be used to store pointer to sync transforms...
+
+   btWheelInfo()
+      : m_clientInfo(0),
+        m_clippedInvContactDotSuspension(0),
+        m_suspensionRelativeVelocity(0),
+        m_wheelsSuspensionForce(0),
+        m_suspensionRestLength1(0.0),
+        m_maxSuspensionTravelCm(0.0),
+        m_wheelsRadius(0.0),
+        m_suspensionStiffness(0.0),
+        m_wheelsDampingCompression(0.0),
+        m_wheelsDampingRelaxation(0.0),
+        m_frictionSlip(0.0),
+        m_steering(0.0),
+        m_rotation(0.0),
+        m_deltaRotation(0.0),
+        m_rollInfluence(0.0),
+        m_maxSuspensionForce(0.0),
+        m_engineForce(0.0),
+        m_brake(0.0),
+        m_bIsFrontWheel(false),
+        m_skidInfo(0)
+     {
+
+     }
+
 
 	btWheelInfo(btWheelInfoConstructionInfo& ci)
       : m_clientInfo(0),

@@ -11,10 +11,12 @@
 #ifndef BT_VEHICLE_RAYCASTER_H
 #define BT_VEHICLE_RAYCASTER_H
 
+#include "../bullet_dynamics_config.h"
+
 #include "LinearMath/btVector3.h"
 
 /// btVehicleRaycaster is provides interface for between vehicle simulation and raycasting
-struct btVehicleRaycaster
+struct BULLET_DYNAMICS_EXPORT btVehicleRaycaster
 {
 virtual ~btVehicleRaycaster()
 {

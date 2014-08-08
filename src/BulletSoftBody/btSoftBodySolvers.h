@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_SOFT_BODY_SOLVERS_H
 #define BT_SOFT_BODY_SOLVERS_H
 
+#include "bullet_softbody_config.h"
+
 #include "BulletCollision/CollisionShapes/btTriangleIndexVertexArray.h"
 
 
@@ -27,7 +29,7 @@ class btCollisionObject;
 class btSoftBody;
 
 
-class btSoftBodySolver
+class BULLET_SOFTBODY_EXPORT btSoftBodySolver
 {
 public:
 	enum SolverTypes

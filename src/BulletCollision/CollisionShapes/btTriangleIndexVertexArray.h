@@ -67,7 +67,7 @@ typedef btAlignedObjectArray<btIndexedMesh>	IndexedMeshArray;
 ///Additional meshes can be added using addIndexedMesh
 ///No duplcate is made of the vertex/index data, it only indexes into external vertex/index arrays.
 ///So keep those arrays around during the lifetime of this btTriangleIndexVertexArray.
-ATTRIBUTE_ALIGNED16( class) btTriangleIndexVertexArray : public btStridingMeshInterface
+ATTRIBUTE_ALIGNED16( class) BULLET_COLLISION_EXPORT btTriangleIndexVertexArray : public btStridingMeshInterface
 {
 protected:
 	IndexedMeshArray	m_indexedMeshes;

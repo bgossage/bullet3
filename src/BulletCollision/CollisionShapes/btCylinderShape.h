@@ -136,7 +136,7 @@ BT_DECLARE_ALIGNED_ALLOCATOR();
 
 };
 
-class btCylinderShapeX : public btCylinderShape
+class BULLET_COLLISION_EXPORT btCylinderShapeX : public btCylinderShape
 {
 public:
 	BT_DECLARE_ALIGNED_ALLOCATOR();
@@ -159,7 +159,7 @@ public:
 
 };
 
-class btCylinderShapeZ : public btCylinderShape
+class BULLET_COLLISION_EXPORT btCylinderShapeZ : public btCylinderShape
 {
 public:
 	BT_DECLARE_ALIGNED_ALLOCATOR();
@@ -183,7 +183,7 @@ public:
 };
 
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
-struct	btCylinderShapeData
+struct	BULLET_COLLISION_EXPORT btCylinderShapeData
 {
 	btConvexInternalShapeData	m_convexInternalShapeData;
 

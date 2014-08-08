@@ -11,6 +11,8 @@
 #ifndef BT_RAYCASTVEHICLE_H
 #define BT_RAYCASTVEHICLE_H
 
+#include "../bullet_dynamics_config.h"
+
 //#include "BulletDynamics/Dynamics/btRigidBody.h"
 #include "BulletDynamics/ConstraintSolver/btTypedConstraint.h"
 #include "btVehicleRaycaster.h"
@@ -24,7 +26,7 @@ class btDynamicsWorld;
 class btRigidBody;
 
 ///rayCast vehicle, very special constraint that turns a rigidbody into a vehicle.
-class btRaycastVehicle : public btActionInterface
+class BULLET_DYNAMICS_EXPORT btRaycastVehicle : public btActionInterface
 {
 
 		btAlignedObjectArray<btVector3>	m_forwardWS;

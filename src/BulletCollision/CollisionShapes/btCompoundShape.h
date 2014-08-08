@@ -53,7 +53,7 @@ SIMD_FORCE_INLINE bool operator==(const btCompoundShapeChild& c1, const btCompou
 /// It has an (optional) dynamic aabb tree to accelerate early rejection tests. 
 /// @todo: This aabb tree can also be use to speed up ray tests on btCompoundShape, see http://code.google.com/p/bullet/issues/detail?id=25
 /// Currently, removal of child shapes is only supported when disabling the aabb tree (pass 'false' in the constructor of btCompoundShape)
-ATTRIBUTE_ALIGNED16(class) btCompoundShape	: public btCollisionShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btCompoundShape	: public btCollisionShape
 {
 	btAlignedObjectArray<btCompoundShapeChild> m_children;
 	btVector3						m_localAabbMin;
@@ -178,7 +178,7 @@ public:
 };
 
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
-struct btCompoundShapeChildData
+struct BULLET_COLLISION_EXPORT btCompoundShapeChildData
 {
 	btTransformFloatData	m_transform;
 	btCollisionShapeData	*m_childShape;
@@ -187,7 +187,7 @@ struct btCompoundShapeChildData
 };
 
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
-struct	btCompoundShapeData
+struct BULLET_COLLISION_EXPORT	btCompoundShapeData
 {
 	btCollisionShapeData		m_collisionShapeData;
 
