@@ -30,7 +30,7 @@ subject to the following restrictions:
 struct BULLET_COLLISION_EXPORT btDiscreteCollisionDetectorInterface
 {
 	
-	struct Result
+   struct BULLET_COLLISION_EXPORT Result
 	{
 	
 		virtual ~Result(){}	

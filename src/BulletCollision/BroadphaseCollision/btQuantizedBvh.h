@@ -181,7 +181,7 @@ typedef btAlignedObjectArray<btBvhSubtreeInfo>		BvhSubtreeInfoArray;
 ///The btQuantizedBvh class stores an AABB tree that can be quickly traversed on CPU and Cell SPU.
 ///It is used by the btBvhTriangleMeshShape as midphase, and by the btMultiSapBroadphase.
 ///It is recommended to use quantization for better performance and lower memory requirements.
-ATTRIBUTE_ALIGNED16(class) btQuantizedBvh
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btQuantizedBvh
 {
 public:
 	enum btTraversalMode
