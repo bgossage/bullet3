@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_CONSTRAINT_SOLVER_H
 #define BT_CONSTRAINT_SOLVER_H
 
+#include "../bullet_dynamics_config.h"
+
 #include "LinearMath/btScalar.h"
 
 class btPersistentManifold;
@@ -37,7 +39,7 @@ enum btConstraintSolverType
 	BT_NNCG_SOLVER=4
 };
 
-class btConstraintSolver
+class BULLET_DYNAMICS_EXPORT btConstraintSolver
 {
 
 public:

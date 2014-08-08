@@ -1031,7 +1031,7 @@ void btAxisSweep3Internal<BP_FP_INT_TYPE>::sortMaxUp(int axis, BP_FP_INT_TYPE ed
 /// The btAxisSweep3 is an efficient implementation of the 3d axis sweep and prune broadphase.
 /// It uses arrays rather then lists for storage of the 3 axis. Also it operates using 16 bit integer coordinates instead of floats.
 /// For large worlds and many objects, use bt32BitAxisSweep3 or btDbvtBroadphase instead. bt32BitAxisSweep3 has higher precision and allows more then 16384 objects at the cost of more memory and bit of performance.
-class btAxisSweep3 : public btAxisSweep3Internal<unsigned short int>
+class BULLET_COLLISION_EXPORT btAxisSweep3 : public btAxisSweep3Internal<unsigned short int>
 {
 public:
 

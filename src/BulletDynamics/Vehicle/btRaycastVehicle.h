@@ -222,7 +222,7 @@ public:
 
 };
 
-class btDefaultVehicleRaycaster : public btVehicleRaycaster
+class BULLET_DYNAMICS_EXPORT btDefaultVehicleRaycaster : public btVehicleRaycaster
 {
 	btDynamicsWorld*	m_dynamicsWorld;
 public:

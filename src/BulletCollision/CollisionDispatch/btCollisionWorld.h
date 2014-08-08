@@ -410,7 +410,7 @@ public:
 	};
 
 	///ContactResultCallback is used to report contact points
-	struct	ContactResultCallback
+   struct	BULLET_COLLISION_EXPORT ContactResultCallback
 	{
 		short int	m_collisionFilterGroup;
 		short int	m_collisionFilterMask;
