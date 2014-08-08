@@ -47,7 +47,7 @@ typedef  float float4 __attribute__ ((vector_size(16)));
 
 #include <emmintrin.h>
 
-long _maxdot_large( const float *vv, const float *vec, unsigned long count, float *dotResult );
+long LINEAR_MATH_EXPORT _maxdot_large( const float *vv, const float *vec, unsigned long count, float *dotResult );
 long _maxdot_large( const float *vv, const float *vec, unsigned long count, float *dotResult )
 {
     const float4 *vertices = (const float4*) vv;
