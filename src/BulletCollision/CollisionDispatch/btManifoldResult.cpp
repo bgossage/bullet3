@@ -20,8 +20,20 @@ subject to the following restrictions:
 #include "BulletCollision/CollisionDispatch/btCollisionObjectWrapper.h"
 
 ///This is to allow MaterialCombiner/Custom Friction/Restitution values
-ContactAddedCallback		gContactAddedCallback=0;
+///
+ContactAddedCallback gContactAddedCallback=0;
 
+ContactAddedCallback GetContactAddedCallback()
+{
+   return gContactAddedCallback;
+
+}// end ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+void SetContactAddedCallback( ContactAddedCallback funcPtr )
+{
+   gContactAddedCallback = funcPtr;
+
+}// end ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 ///User can override this material combiner by implementing gContactAddedCallback and setting body0->m_collisionFlags |= btCollisionObject::customMaterialCallback;

@@ -19,7 +19,6 @@ subject to the following restrictions:
 
 #include "../bullet_collision_config.h"
 
-#include "../bullet_collision_config.h"
 
 class btCollisionObject;
 struct btCollisionObjectWrapper;
@@ -33,8 +32,16 @@ class btManifoldPoint;
 #include "BulletCollision/CollisionDispatch/btCollisionObjectWrapper.h"
 #include "BulletCollision/CollisionDispatch/btCollisionObject.h"
 
-typedef bool (*ContactAddedCallback)(btManifoldPoint& cp,	const btCollisionObjectWrapper* colObj0Wrap,int partId0,int index0,const btCollisionObjectWrapper* colObj1Wrap,int partId1,int index1);
-extern ContactAddedCallback		gContactAddedCallback;
+typedef bool  (*ContactAddedCallback)(btManifoldPoint& cp,
+                                      const btCollisionObjectWrapper* colObj0Wrap,
+                                      int partId0,int index0,
+                                      const btCollisionObjectWrapper* colObj1Wrap,
+                                      int partId1,int index1
+                                      );
+
+BULLET_COLLISION_EXPORT ContactAddedCallback	GetContactAddedCallback();
+
+BULLET_COLLISION_EXPORT void SetContactAddedCallback( ContactAddedCallback funcPtr );
 
 //#define DEBUG_PART_INDEX 1
 
