@@ -17,12 +17,10 @@ subject to the following restrictions:
 #ifndef BT_SIMD__QUATERNION_H_
 #define BT_SIMD__QUATERNION_H_
 
+#include "linear_math_config.h"
 
 #include "btVector3.h"
 #include "btQuadWord.h"
-
-
-
 
 
 #ifdef BT_USE_SSE
@@ -45,7 +43,7 @@ const btSimdFloat4 ATTRIBUTE_ALIGNED16(vPPPM) = {+0.0f, +0.0f, +0.0f, -0.0f};
 #endif
 
 /**@brief The btQuaternion implements quaternion to perform linear algebra rotations in combination with btMatrix3x3, btVector3 and btTransform. */
-class btQuaternion : public btQuadWord {
+class LINEAR_MATH_EXPORT btQuaternion : public btQuadWord {
 public:
   /**@brief No initialization constructor */
 	btQuaternion() {}

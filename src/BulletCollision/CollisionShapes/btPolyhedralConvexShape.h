@@ -16,13 +16,15 @@ subject to the following restrictions:
 #ifndef BT_POLYHEDRAL_CONVEX_SHAPE_H
 #define BT_POLYHEDRAL_CONVEX_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btMatrix3x3.h"
 #include "btConvexInternalShape.h"
 class btConvexPolyhedron;
 
 
 ///The btPolyhedralConvexShape is an internal interface class for polyhedral convex shapes.
-ATTRIBUTE_ALIGNED16(class) btPolyhedralConvexShape : public btConvexInternalShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btPolyhedralConvexShape : public btConvexInternalShape
 {
 	
 
@@ -70,7 +72,7 @@ public:
 
 
 ///The btPolyhedralConvexAabbCachingShape adds aabb caching to the btPolyhedralConvexShape
-class btPolyhedralConvexAabbCachingShape : public btPolyhedralConvexShape
+class BULLET_COLLISION_EXPORT  btPolyhedralConvexAabbCachingShape : public btPolyhedralConvexShape
 {
 
 	btVector3	m_localAabbMin;

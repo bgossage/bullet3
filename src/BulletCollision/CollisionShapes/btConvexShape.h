@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_CONVEX_SHAPE_INTERFACE1
 #define BT_CONVEX_SHAPE_INTERFACE1
 
+#include "../bullet_collision_config.h"
+
 #include "btCollisionShape.h"
 
 #include "LinearMath/btVector3.h"
@@ -28,7 +30,7 @@ subject to the following restrictions:
 
 /// The btConvexShape is an abstract shape interface, implemented by all convex shapes such as btBoxShape, btConvexHullShape etc.
 /// It describes general convex shapes using the localGetSupportingVertex interface, used by collision detectors such as btGjkPairDetector.
-ATTRIBUTE_ALIGNED16(class) btConvexShape : public btCollisionShape
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btConvexShape : public btCollisionShape
 {
 
 

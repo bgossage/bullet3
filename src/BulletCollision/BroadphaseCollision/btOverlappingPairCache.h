@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_OVERLAPPING_PAIR_CACHE_H
 #define BT_OVERLAPPING_PAIR_CACHE_H
 
+#include "../bullet_collision_config.h"
+
 
 #include "btBroadphaseInterface.h"
 #include "btBroadphaseProxy.h"
@@ -26,7 +28,7 @@ class btDispatcher;
 
 typedef btAlignedObjectArray<btBroadphasePair>	btBroadphasePairArray;
 
-struct	btOverlapCallback
+struct BULLET_COLLISION_EXPORT	btOverlapCallback
 {
 	virtual ~btOverlapCallback()
 	{}
@@ -35,7 +37,7 @@ struct	btOverlapCallback
 
 };
 
-struct btOverlapFilterCallback
+struct BULLET_COLLISION_EXPORT btOverlapFilterCallback
 {
 	virtual ~btOverlapFilterCallback()
 	{}
@@ -57,7 +59,7 @@ const int BT_NULL_PAIR=0xffffffff;
 
 ///The btOverlappingPairCache provides an interface for overlapping pair management (add, remove, storage), used by the btBroadphaseInterface broadphases.
 ///The btHashedOverlappingPairCache and btSortedOverlappingPairCache classes are two implementations.
-class btOverlappingPairCache : public btOverlappingPairCallback
+class BULLET_COLLISION_EXPORT btOverlappingPairCache : public btOverlappingPairCallback
 {
 public:
 	virtual ~btOverlappingPairCache() {} // this is needed so we can get to the derived class destructor
@@ -90,7 +92,7 @@ public:
 };
 
 /// Hash-space based Pair Cache, thanks to Erin Catto, Box2D, http://www.box2d.org, and Pierre Terdiman, Codercorner, http://codercorner.com
-class btHashedOverlappingPairCache : public btOverlappingPairCache
+class BULLET_COLLISION_EXPORT btHashedOverlappingPairCache : public btOverlappingPairCache
 {
 	btBroadphasePairArray	m_overlappingPairArray;
 	btOverlapFilterCallback* m_overlapFilterCallback;

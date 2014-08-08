@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_COMPOUND_SHAPE_H
 #define BT_COMPOUND_SHAPE_H
 
+#include "../bullet_collision_config.h"
+
 #include "btCollisionShape.h"
 
 #include "LinearMath/btVector3.h"
@@ -27,7 +29,7 @@ subject to the following restrictions:
 //class btOptimizedBvh;
 struct btDbvt;
 
-ATTRIBUTE_ALIGNED16(struct) btCompoundShapeChild
+ATTRIBUTE_ALIGNED16(struct) BULLET_COLLISION_EXPORT btCompoundShapeChild
 {
 	BT_DECLARE_ALIGNED_ALLOCATOR();
 

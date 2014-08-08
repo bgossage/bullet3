@@ -16,14 +16,17 @@ subject to the following restrictions:
 #ifndef BT_COLLISION_CREATE_FUNC
 #define BT_COLLISION_CREATE_FUNC
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btAlignedObjectArray.h"
+
 class btCollisionAlgorithm;
 class btCollisionObject;
 struct btCollisionObjectWrapper;
 struct btCollisionAlgorithmConstructionInfo;
 
 ///Used by the btCollisionDispatcher to register and create instances for btCollisionAlgorithm
-struct btCollisionAlgorithmCreateFunc
+struct BULLET_COLLISION_EXPORT btCollisionAlgorithmCreateFunc
 {
 	bool m_swapped;
 	

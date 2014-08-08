@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_PERSISTENT_MANIFOLD_H
 #define BT_PERSISTENT_MANIFOLD_H
 
+#include "../bullet_collision_config.h"
+
 
 #include "LinearMath/btVector3.h"
 #include "LinearMath/btTransform.h"
@@ -51,7 +53,7 @@ enum btContactManifoldTypes
 ///note that some pairs of objects might have more then one contact manifold.
 
 
-ATTRIBUTE_ALIGNED128( class) btPersistentManifold : public btTypedObject
+ATTRIBUTE_ALIGNED128( class) BULLET_COLLISION_EXPORT btPersistentManifold : public btTypedObject
 //ATTRIBUTE_ALIGNED16( class) btPersistentManifold : public btTypedObject
 {
 
@@ -83,11 +85,18 @@ public:
 
 	btPersistentManifold();
 
-	btPersistentManifold(const btCollisionObject* body0,const btCollisionObject* body1,int , btScalar contactBreakingThreshold,btScalar contactProcessingThreshold)
-		: btTypedObject(BT_PERSISTENT_MANIFOLD_TYPE),
-	m_body0(body0),m_body1(body1),m_cachedPoints(0),
-		m_contactBreakingThreshold(contactBreakingThreshold),
-		m_contactProcessingThreshold(contactProcessingThreshold)
+	btPersistentManifold( const btCollisionObject* body0,
+                         const btCollisionObject* body1,
+                         int ,
+                         btScalar contactBreakingThreshold,
+                         btScalar contactProcessingThreshold
+                       )
+	: btTypedObject(BT_PERSISTENT_MANIFOLD_TYPE),
+	  m_body0(body0),m_body1(body1),m_cachedPoints(0),
+	  m_contactBreakingThreshold(contactBreakingThreshold),
+	  m_contactProcessingThreshold(contactProcessingThreshold),
+     m_companionIdA(0), m_companionIdB(0),
+     m_index1a(0)
 	{
 	}
 

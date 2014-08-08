@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_SIMULATION_ISLAND_MANAGER_H
 #define BT_SIMULATION_ISLAND_MANAGER_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/CollisionDispatch/btUnionFind.h"
 #include "btCollisionCreateFunc.h"
 #include "LinearMath/btAlignedObjectArray.h"
@@ -28,7 +30,7 @@ class btPersistentManifold;
 
 
 ///SimulationIslandManager creates and handles simulation islands, using btUnionFind
-class btSimulationIslandManager
+class BULLET_COLLISION_EXPORT btSimulationIslandManager
 {
 	btUnionFind m_unionFind;
 

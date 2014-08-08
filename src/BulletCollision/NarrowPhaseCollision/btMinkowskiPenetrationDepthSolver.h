@@ -16,11 +16,13 @@ subject to the following restrictions:
 #ifndef BT_MINKOWSKI_PENETRATION_DEPTH_SOLVER_H
 #define BT_MINKOWSKI_PENETRATION_DEPTH_SOLVER_H
 
+#include "../bullet_collision_config.h"
+
 #include "btConvexPenetrationDepthSolver.h"
 
 ///MinkowskiPenetrationDepthSolver implements bruteforce penetration depth estimation.
 ///Implementation is based on sampling the depth using support mapping, and using GJK step to get the witness points.
-class btMinkowskiPenetrationDepthSolver : public btConvexPenetrationDepthSolver
+class BULLET_COLLISION_EXPORT btMinkowskiPenetrationDepthSolver : public btConvexPenetrationDepthSolver
 {
 protected:
 

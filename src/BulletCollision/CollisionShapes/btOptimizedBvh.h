@@ -18,13 +18,15 @@ subject to the following restrictions:
 #ifndef BT_OPTIMIZED_BVH_H
 #define BT_OPTIMIZED_BVH_H
 
+#include "../bullet_collision_config.h"
+
 #include "BulletCollision/BroadphaseCollision/btQuantizedBvh.h"
 
 class btStridingMeshInterface;
 
 
 ///The btOptimizedBvh extends the btQuantizedBvh to create AABB tree for triangle meshes, through the btStridingMeshInterface.
-ATTRIBUTE_ALIGNED16(class) btOptimizedBvh : public btQuantizedBvh
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btOptimizedBvh : public btQuantizedBvh
 {
 	
 public:

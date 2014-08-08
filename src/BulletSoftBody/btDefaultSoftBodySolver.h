@@ -16,12 +16,14 @@ subject to the following restrictions:
 #ifndef BT_SOFT_BODY_DEFAULT_SOLVER_H
 #define BT_SOFT_BODY_DEFAULT_SOLVER_H
 
+#include "bullet_softbody_config.h"
+
 
 #include "BulletSoftBody/btSoftBodySolvers.h"
 #include "btSoftBodySolverVertexBuffer.h"
 struct btCollisionObjectWrapper;
 
-class btDefaultSoftBodySolver : public btSoftBodySolver
+class BULLET_SOFTBODY_EXPORT btDefaultSoftBodySolver : public btSoftBodySolver
 {
 protected:		
 	/** Variable to define whether we need to update solver constants on the next iteration */

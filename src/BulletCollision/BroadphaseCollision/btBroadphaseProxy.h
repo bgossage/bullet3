@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_BROADPHASE_PROXY_H
 #define BT_BROADPHASE_PROXY_H
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btScalar.h" //for SIMD_FORCE_INLINE
 #include "LinearMath/btVector3.h"
 #include "LinearMath/btAlignedAllocator.h"
@@ -82,7 +84,7 @@ CONCAVE_SHAPES_END_HERE,
 
 ///The btBroadphaseProxy is the main class that can be used with the Bullet broadphases. 
 ///It stores collision shape type information, collision filter information and a client object, typically a btCollisionObject or btRigidBody.
-ATTRIBUTE_ALIGNED16(struct) btBroadphaseProxy
+ATTRIBUTE_ALIGNED16(struct) BULLET_COLLISION_EXPORT btBroadphaseProxy
 {
 
 BT_DECLARE_ALIGNED_ALLOCATOR();
@@ -115,18 +117,30 @@ BT_DECLARE_ALIGNED_ALLOCATOR();
 	}
 
 	//used for memory pools
-	btBroadphaseProxy() :m_clientObject(0),m_multiSapParentProxy(0)
+	btBroadphaseProxy()
+      : m_clientObject(0),
+        m_collisionFilterGroup(0),
+        m_collisionFilterMask(0),
+        m_multiSapParentProxy(0),
+        m_uniqueId(0)
 	{
 	}
 
-	btBroadphaseProxy(const btVector3& aabbMin,const btVector3& aabbMax,void* userPtr,short int collisionFilterGroup, short int collisionFilterMask,void* multiSapParentProxy=0)
-		:m_clientObject(userPtr),
+	btBroadphaseProxy( const btVector3& aabbMin,
+                      const btVector3& aabbMax,
+                      void* userPtr,
+                      short int collisionFilterGroup,
+                      short int collisionFilterMask,
+                      void* multiSapParentProxy=0
+                     )
+	:  m_clientObject(userPtr),
 		m_collisionFilterGroup(collisionFilterGroup),
 		m_collisionFilterMask(collisionFilterMask),
+      m_multiSapParentProxy(multiSapParentProxy),
+      m_uniqueId(0),
 		m_aabbMin(aabbMin),
 		m_aabbMax(aabbMax)
 	{
-		m_multiSapParentProxy = multiSapParentProxy;
 	}
 
 	
@@ -183,7 +197,7 @@ struct btBroadphaseProxy;
 
 ///The btBroadphasePair class contains a pair of aabb-overlapping objects.
 ///A btDispatcher can search a btCollisionAlgorithm that performs exact/narrowphase collision detection on the actual collision shapes.
-ATTRIBUTE_ALIGNED16(struct) btBroadphasePair
+ATTRIBUTE_ALIGNED16(struct) BULLET_COLLISION_EXPORT btBroadphasePair
 {
 	btBroadphasePair ()
 		:
@@ -242,7 +256,7 @@ SIMD_FORCE_INLINE bool operator<(const btBroadphasePair& a, const btBroadphasePa
 
 
 
-class btBroadphasePairSortPredicate
+class BULLET_COLLISION_EXPORT btBroadphasePairSortPredicate
 {
 	public:
 

@@ -2,6 +2,8 @@
 #ifndef BT_INTERNAL_EDGE_UTILITY_H
 #define BT_INTERNAL_EDGE_UTILITY_H
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btHashMap.h"
 #include "LinearMath/btVector3.h"
 

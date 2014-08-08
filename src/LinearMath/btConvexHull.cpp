@@ -346,23 +346,23 @@ public:
 	int id;
 	int vmax;
 	btScalar rise;
-	btHullTriangle(int a,int b,int c):int3(a,b,c),n(-1,-1,-1)
+	btHullTriangle(int a,int b,int c)
+    :int3(a,b,c),
+     n(-1,-1,-1),
+     id(0), vmax(-1), rise(0.0)
 	{
-		vmax=-1;
-		rise = btScalar(0.0);
+
 	}
-	~btHullTriangle()
-	{
-	}
-	int &neib(int a,int b);
+
+	int& neib(int a,int b);
 };
 
 
 int &btHullTriangle::neib(int a,int b)
 {
 	static int er=-1;
-	int i;
-	for(i=0;i<3;i++) 
+
+	for(int i=0;i<3;i++) 
 	{
 		int i1=(i+1)%3;
 		int i2=(i+2)%3;
@@ -374,8 +374,7 @@ int &btHullTriangle::neib(int a,int b)
 }
 void HullLibrary::b2bfix(btHullTriangle* s,btHullTriangle*t)
 {
-	int i;
-	for(i=0;i<3;i++) 
+	for(int i=0;i<3;i++) 
 	{
 		int i1=(i+1)%3;
 		int i2=(i+2)%3;

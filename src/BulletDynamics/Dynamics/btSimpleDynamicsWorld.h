@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_SIMPLE_DYNAMICS_WORLD_H
 #define BT_SIMPLE_DYNAMICS_WORLD_H
 
+#include "../bullet_dynamics_config.h"
+
 #include "btDynamicsWorld.h"
 
 class btDispatcher;
@@ -24,7 +26,7 @@ class btConstraintSolver;
 
 ///The btSimpleDynamicsWorld serves as unit-test and to verify more complicated and optimized dynamics worlds.
 ///Please use btDiscreteDynamicsWorld instead
-class btSimpleDynamicsWorld : public btDynamicsWorld
+class BULLET_DYNAMICS_EXPORT btSimpleDynamicsWorld : public btDynamicsWorld
 {
 protected:
 
@@ -84,6 +86,6 @@ public:
 
 	virtual void	clearForces();
 
-};
+};// end class btSimpleDynamicsWorld
 
 #endif //BT_SIMPLE_DYNAMICS_WORLD_H

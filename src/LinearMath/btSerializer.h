@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_SERIALIZER_H
 #define BT_SERIALIZER_H
 
+#include "linear_math_config.h"
+
 #include "btScalar.h" // has definitions like SIMD_FORCE_INLINE
 #include "btHashMap.h"
 
@@ -48,7 +50,7 @@ SIMD_FORCE_INLINE	int btStrLen(const char* str)
 }
 
 
-class btChunk
+class LINEAR_MATH_EXPORT btChunk
 {
 public:
 	int		m_chunkCode;
@@ -65,7 +67,7 @@ enum	btSerializationFlags
 	BT_SERIALIZE_NO_DUPLICATE_ASSERT = 4
 };
 
-class	btSerializer
+class LINEAR_MATH_EXPORT btSerializer
 {
 
 public:
@@ -125,7 +127,7 @@ public:
 #define BT_DNA_CODE				BT_MAKE_ID('D','N','A','1')
 
 
-struct	btPointerUid
+struct LINEAR_MATH_EXPORT	btPointerUid
 {
 	union
 	{
@@ -136,7 +138,7 @@ struct	btPointerUid
 
 ///The btDefaultSerializer is the main Bullet serialization class.
 ///The constructor takes an optional argument for backwards compatibility, it is recommended to leave this empty/zero.
-class btDefaultSerializer	:	public btSerializer
+class LINEAR_MATH_EXPORT btDefaultSerializer	:	public btSerializer
 {
 
 
@@ -357,9 +359,12 @@ public:
 	
 
 	
-
+   /**
+    * Constructor.
+    */
 		btDefaultSerializer(int totalSize=0)
-			:m_totalSize(totalSize),
+		:  m_uniqueIdGenerator(0),
+         m_totalSize(totalSize),
 			m_currentSize(0),
 			m_dna(0),
 			m_dnaLength(0),

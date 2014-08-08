@@ -17,13 +17,15 @@ subject to the following restrictions:
 #ifndef BT_CONVEX_PENETRATION_DEPTH_H
 #define BT_CONVEX_PENETRATION_DEPTH_H
 
+#include "../bullet_collision_config.h"
+
 class btVector3;
 #include "btSimplexSolverInterface.h"
 class btConvexShape;
 class btTransform;
 
 ///ConvexPenetrationDepthSolver provides an interface for penetration depth calculation.
-class btConvexPenetrationDepthSolver
+class BULLET_COLLISION_EXPORT btConvexPenetrationDepthSolver
 {
 public:	
 	

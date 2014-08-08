@@ -440,6 +440,8 @@ struct btMultibodyLink
 			m_flags(0),
 			m_dofCount(0),
 			m_posVarCount(0),
+         m_dofOffset(0),
+         m_cfgOffset(0),
 			m_jointType(btMultibodyLink::eInvalid)
 	{
 		m_inertia.setValue(1, 1, 1);

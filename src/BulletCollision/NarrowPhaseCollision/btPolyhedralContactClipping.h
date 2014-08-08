@@ -20,6 +20,8 @@ subject to the following restrictions:
 #ifndef BT_POLYHEDRAL_CONTACT_CLIPPING_H
 #define BT_POLYHEDRAL_CONTACT_CLIPPING_H
 
+#include "../bullet_collision_config.h"
+
 
 #include "LinearMath/btAlignedObjectArray.h"
 #include "LinearMath/btTransform.h"
@@ -30,7 +32,7 @@ class btConvexPolyhedron;
 typedef btAlignedObjectArray<btVector3> btVertexArray;
 
 // Clips a face to the back of a plane
-struct btPolyhedralContactClipping
+struct BULLET_COLLISION_EXPORT btPolyhedralContactClipping
 {
 	static void clipHullAgainstHull(const btVector3& separatingNormal, const btConvexPolyhedron& hullA, const btConvexPolyhedron& hullB, const btTransform& transA,const btTransform& transB, const btScalar minDist, btScalar maxDist, btDiscreteCollisionDetectorInterface::Result& resultOut);
 	static void	clipFaceAgainstHull(const btVector3& separatingNormal, const btConvexPolyhedron& hullA,  const btTransform& transA, btVertexArray& worldVertsB1, const btScalar minDist, btScalar maxDist,btDiscreteCollisionDetectorInterface::Result& resultOut);

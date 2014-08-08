@@ -18,10 +18,12 @@ subject to the following restrictions:
 #ifndef BT_MULTIMATERIAL_TRIANGLE_INDEX_VERTEX_ARRAY_H
 #define BT_MULTIMATERIAL_TRIANGLE_INDEX_VERTEX_ARRAY_H
 
+#include "../bullet_collision_config.h"
+
 #include "btTriangleIndexVertexArray.h"
 
 
-ATTRIBUTE_ALIGNED16( struct)	btMaterialProperties
+ATTRIBUTE_ALIGNED16( struct) BULLET_COLLISION_EXPORT	btMaterialProperties
 {
     ///m_materialBase ==========> 2 btScalar values make up one material, friction then restitution
     int m_numMaterials;

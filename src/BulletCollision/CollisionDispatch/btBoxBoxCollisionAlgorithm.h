@@ -16,22 +16,26 @@ subject to the following restrictions:
 #ifndef BT_BOX_BOX__COLLISION_ALGORITHM_H
 #define BT_BOX_BOX__COLLISION_ALGORITHM_H
 
+#include "../bullet_collision_config.h"
+
 #include "btActivatingCollisionAlgorithm.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseProxy.h"
 #include "BulletCollision/BroadphaseCollision/btDispatcher.h"
 #include "BulletCollision/CollisionDispatch/btCollisionCreateFunc.h"
 
-class btPersistentManifold;
+class BULLET_COLLISION_EXPORT btPersistentManifold;
 
 ///box-box collision detection
-class btBoxBoxCollisionAlgorithm : public btActivatingCollisionAlgorithm
+class BULLET_COLLISION_EXPORT btBoxBoxCollisionAlgorithm : public btActivatingCollisionAlgorithm
 {
 	bool	m_ownManifold;
 	btPersistentManifold*	m_manifoldPtr;
 	
 public:
 	btBoxBoxCollisionAlgorithm(const btCollisionAlgorithmConstructionInfo& ci)
-		: btActivatingCollisionAlgorithm(ci) {}
+		: btActivatingCollisionAlgorithm(ci),
+        m_ownManifold(false),
+        m_manifoldPtr(0) {}
 
 	virtual void processCollision (const btCollisionObjectWrapper* body0Wrap,const btCollisionObjectWrapper* body1Wrap,const btDispatcherInfo& dispatchInfo,btManifoldResult* resultOut);
 

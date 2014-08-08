@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_STRIDING_MESHINTERFACE_H
 #define BT_STRIDING_MESHINTERFACE_H
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btVector3.h"
 #include "btTriangleCallback.h"
 #include "btConcaveShape.h"
@@ -27,7 +29,7 @@ subject to the following restrictions:
 ///	The btStridingMeshInterface is the interface class for high performance generic access to triangle meshes, used in combination with btBvhTriangleMeshShape and some other collision shapes.
 /// Using index striding of 3*sizeof(integer) it can use triangle arrays, using index striding of 1*sizeof(integer) it can handle triangle strips.
 /// It allows for sharing graphics and collision meshes. Also it provides locking/unlocking of graphics meshes that are in gpu memory.
-ATTRIBUTE_ALIGNED16(class ) btStridingMeshInterface
+ATTRIBUTE_ALIGNED16(class ) BULLET_COLLISION_EXPORT btStridingMeshInterface
 {
 	protected:
 	
@@ -101,24 +103,24 @@ ATTRIBUTE_ALIGNED16(class ) btStridingMeshInterface
 
 };
 
-struct	btIntIndexData
+struct BULLET_COLLISION_EXPORT	btIntIndexData
 {
 	int	m_value;
 };
 
-struct	btShortIntIndexData
+struct BULLET_COLLISION_EXPORT	btShortIntIndexData
 {
 	short m_value;
 	char m_pad[2];
 };
 
-struct	btShortIntIndexTripletData
+struct BULLET_COLLISION_EXPORT	btShortIntIndexTripletData
 {
 	short	m_values[3];
 	char	m_pad[2];
 };
 
-struct	btCharIndexTripletData
+struct BULLET_COLLISION_EXPORT	btCharIndexTripletData
 {
 	unsigned char m_values[3];
 	char	m_pad;
@@ -126,7 +128,7 @@ struct	btCharIndexTripletData
 
 
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
-struct	btMeshPartData
+struct BULLET_COLLISION_EXPORT	btMeshPartData
 {
 	btVector3FloatData			*m_vertices3f;
 	btVector3DoubleData			*m_vertices3d;
@@ -143,7 +145,7 @@ struct	btMeshPartData
 
 
 ///do not change those serialization structures, it requires an updated sBulletDNAstr/sBulletDNAstr64
-struct	btStridingMeshInterfaceData
+struct BULLET_COLLISION_EXPORT	btStridingMeshInterfaceData
 {
 	btMeshPartData	*m_meshPartsPtr;
 	btVector3FloatData	m_scaling;

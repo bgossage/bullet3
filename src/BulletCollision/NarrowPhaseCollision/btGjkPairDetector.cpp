@@ -48,6 +48,7 @@ m_shapeTypeB(objectB->getShapeType()),
 m_marginA(objectA->getMargin()),
 m_marginB(objectB->getMargin()),
 m_ignoreMargin(false),
+m_cachedSeparatingDistance(0),
 m_lastUsedMethod(-1),
 m_catchDegeneracies(1),
 m_fixContactNormalDirection(1)

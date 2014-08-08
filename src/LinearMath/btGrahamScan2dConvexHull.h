@@ -17,11 +17,13 @@ subject to the following restrictions:
 #ifndef GRAHAM_SCAN_2D_CONVEX_HULL_H
 #define GRAHAM_SCAN_2D_CONVEX_HULL_H
 
+#include "linear_math_config.h"
+
 
 #include "btVector3.h"
 #include "btAlignedObjectArray.h"
 
-struct GrahamVector3 : public btVector3
+struct  GrahamVector3 : public btVector3
 {
 	GrahamVector3(const btVector3& org, int orgIndex)
 		:btVector3(org),
@@ -33,7 +35,7 @@ struct GrahamVector3 : public btVector3
 };
 
 
-struct btAngleCompareFunc {
+struct  btAngleCompareFunc {
 	btVector3 m_anchor;
 	btAngleCompareFunc(const btVector3& anchor)
 	: m_anchor(anchor) 

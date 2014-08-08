@@ -20,8 +20,6 @@ subject to the following restrictions:
 
 #include "btSimplexSolverInterface.h"
 
-
-
 #define VORONOI_SIMPLEX_MAX_VERTS 5
 
 ///disable next define, or use defaultCollisionConfiguration->getSimplexSolver()->setEqualVertexThreshold(0.f) to disable/configure
@@ -29,10 +27,18 @@ subject to the following restrictions:
 #define VORONOI_DEFAULT_EQUAL_VERTEX_THRESHOLD 0.0001f
 
 
-struct btUsageBitfield{
+struct BULLET_COLLISION_EXPORT btUsageBitfield 
+{
 	btUsageBitfield()
+   : usedVertexA(0),
+	  usedVertexB(0),
+	  usedVertexC(0),
+	  usedVertexD(0),
+	  unused1(0),
+	  unused2(0),
+	  unused3(0),
+	  unused4(0)
 	{
-		reset();
 	}
 
 	void reset()
@@ -53,7 +59,7 @@ struct btUsageBitfield{
 };
 
 
-struct	btSubSimplexClosestResult
+struct BULLET_COLLISION_EXPORT	btSubSimplexClosestResult
 {
 	btVector3	m_closestPointOnSimplex;
 	//MASK for m_usedVertices
@@ -63,13 +69,19 @@ struct	btSubSimplexClosestResult
 	btScalar	m_barycentricCoords[4];
 	bool m_degenerate;
 
+   btSubSimplexClosestResult()
+      : m_degenerate(false)
+   {
+      setBarycentricCoordinates(0,0,0,0);
+   }// end constructor 
+
 	void	reset()
 	{
 		m_degenerate = false;
 		setBarycentricCoordinates();
 		m_usedVertices.reset();
 	}
-	bool	isValid()
+	bool	isValid() const
 	{
 		bool valid = (m_barycentricCoords[0] >= btScalar(0.)) &&
 			(m_barycentricCoords[1] >= btScalar(0.)) &&
@@ -87,14 +99,14 @@ struct	btSubSimplexClosestResult
 		m_barycentricCoords[3] = d;
 	}
 
-};
+};// end class btSubSimplexClosestResult
 
 /// btVoronoiSimplexSolver is an implementation of the closest point distance algorithm from a 1-4 points simplex to the origin.
 /// Can be used with GJK, as an alternative to Johnson distance algorithm.
 #ifdef NO_VIRTUAL_INTERFACE
 ATTRIBUTE_ALIGNED16(class) btVoronoiSimplexSolver
 #else
-ATTRIBUTE_ALIGNED16(class) btVoronoiSimplexSolver : public btSimplexSolverInterface
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btVoronoiSimplexSolver : public btSimplexSolverInterface
 #endif
 {
 public:
@@ -133,7 +145,10 @@ public:
 public:
 
 	btVoronoiSimplexSolver()
-		:  m_equalVertexThreshold(VORONOI_DEFAULT_EQUAL_VERTEX_THRESHOLD)
+		: m_numVertices(0),
+        m_equalVertexThreshold(VORONOI_DEFAULT_EQUAL_VERTEX_THRESHOLD),
+        m_cachedValidClosest(false),
+        m_needsUpdate(false)
 	{
 	}
 	 void reset();

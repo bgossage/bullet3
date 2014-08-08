@@ -17,6 +17,8 @@ subject to the following restrictions:
 #ifndef BT_SUBSIMPLEX_CONVEX_CAST_H
 #define BT_SUBSIMPLEX_CONVEX_CAST_H
 
+#include "../bullet_collision_config.h"
+
 #include "btConvexCast.h"
 #include "btSimplexSolverInterface.h"
 class btConvexShape;
@@ -25,7 +27,7 @@ class btConvexShape;
 ///"Ray Casting against bteral Convex Objects with Application to Continuous Collision Detection"
 /// GJK based Ray Cast, optimized version
 /// Objects should not start in overlap, otherwise results are not defined.
-class btSubsimplexConvexCast : public btConvexCast
+class BULLET_COLLISION_EXPORT btSubsimplexConvexCast : public btConvexCast
 {
 	btSimplexSolverInterface* m_simplexSolver;
 	const btConvexShape*	m_convexA;

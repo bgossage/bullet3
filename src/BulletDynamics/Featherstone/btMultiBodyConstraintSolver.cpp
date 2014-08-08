@@ -836,11 +836,10 @@ btScalar btMultiBodyConstraintSolver::solveGroup(btCollisionObject** bodies,int 
 btScalar btMultiBodyConstraintSolver::solveGroupCacheFriendlyFinish(btCollisionObject** bodies,int numBodies,const btContactSolverInfo& infoGlobal)
 {
 	int numPoolConstraints = m_multiBodyNormalContactConstraints.size();
-	int i,j;
 
 	if (infoGlobal.m_solverMode & SOLVER_USE_WARMSTARTING)
 	{
-		for (j=0;j<numPoolConstraints;j++)
+		for (int j=0;j<numPoolConstraints;j++)
 		{
 			const btMultiBodySolverConstraint& solveManifold = m_multiBodyNormalContactConstraints[j];
 			btManifoldPoint* pt = (btManifoldPoint*) solveManifold.m_originalContactPoint;

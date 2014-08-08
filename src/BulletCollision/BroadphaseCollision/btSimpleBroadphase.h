@@ -16,21 +16,32 @@ subject to the following restrictions:
 #ifndef BT_SIMPLE_BROADPHASE_H
 #define BT_SIMPLE_BROADPHASE_H
 
+#include "../bullet_collision_config.h"
 
 #include "btOverlappingPairCache.h"
 
 
-struct btSimpleBroadphaseProxy : public btBroadphaseProxy
+struct BULLET_COLLISION_EXPORT btSimpleBroadphaseProxy : public btBroadphaseProxy
 {
 	int			m_nextFree;
 	
 //	int			m_handleId;
 
 	
-	btSimpleBroadphaseProxy() {};
+// Default constructor
+	btSimpleBroadphaseProxy()
+   : m_nextFree(0) {}
 
-	btSimpleBroadphaseProxy(const btVector3& minpt,const btVector3& maxpt,int shapeType,void* userPtr,short int collisionFilterGroup,short int collisionFilterMask,void* multiSapProxy)
-	:btBroadphaseProxy(minpt,maxpt,userPtr,collisionFilterGroup,collisionFilterMask,multiSapProxy)
+	btSimpleBroadphaseProxy( const btVector3& minpt,
+                            const btVector3& maxpt,
+                            int shapeType,
+                            void* userPtr,
+                            short int collisionFilterGroup,
+                            short int collisionFilterMask,
+                            void* multiSapProxy
+                          )
+	: btBroadphaseProxy(minpt,maxpt,userPtr,collisionFilterGroup,collisionFilterMask,multiSapProxy),
+     m_nextFree(0)
 	{
 		(void)shapeType;
 	}
@@ -46,7 +57,7 @@ struct btSimpleBroadphaseProxy : public btBroadphaseProxy
 
 ///The SimpleBroadphase is just a unit-test for btAxisSweep3, bt32BitAxisSweep3, or btDbvtBroadphase, so use those classes instead.
 ///It is a brute force aabb culling broadphase based on O(n^2) aabb checks
-class btSimpleBroadphase : public btBroadphaseInterface
+class BULLET_COLLISION_EXPORT btSimpleBroadphase : public btBroadphaseInterface
 {
 
 protected:

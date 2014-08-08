@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_DYNAMICS_WORLD_H
 #define BT_DYNAMICS_WORLD_H
 
+#include "../bullet_dynamics_config.h"
+
 #include "BulletCollision/CollisionDispatch/btCollisionWorld.h"
 #include "BulletDynamics/ConstraintSolver/btContactSolverInfo.h"
 
@@ -38,7 +40,7 @@ enum btDynamicsWorldType
 };
 
 ///The btDynamicsWorld is the interface class for several dynamics implementation, basic, discrete, parallel, and continuous etc.
-class btDynamicsWorld : public btCollisionWorld
+class BULLET_DYNAMICS_EXPORT btDynamicsWorld : public btCollisionWorld
 {
 
 protected:

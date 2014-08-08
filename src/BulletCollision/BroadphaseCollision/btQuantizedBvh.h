@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_QUANTIZED_BVH_H
 #define BT_QUANTIZED_BVH_H
 
+#include "../bullet_collision_config.h"
+
 class btSerializer;
 
 //#define DEBUG_CHECK_DEQUANTIZATION 1
@@ -24,9 +26,13 @@ class btSerializer;
 #define printf spu_printf
 #endif //__SPU__
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #endif //DEBUG_CHECK_DEQUANTIZATION
+
+
+#include <algorithm>
 
 #include "LinearMath/btVector3.h"
 #include "LinearMath/btAlignedAllocator.h"
@@ -55,7 +61,7 @@ class btSerializer;
 
 ///btQuantizedBvhNode is a compressed aabb node, 16 bytes.
 ///Node can be used for leafnode or internal node. Leafnodes can point to 32-bit triangle index (non-negative range).
-ATTRIBUTE_ALIGNED16	(struct) btQuantizedBvhNode
+ATTRIBUTE_ALIGNED16	(struct)  BULLET_COLLISION_EXPORT btQuantizedBvhNode
 {
 	BT_DECLARE_ALIGNED_ALLOCATOR();
 
@@ -131,8 +137,12 @@ public:
 	int			m_padding[3];
 
 	btBvhSubtreeInfo()
+      : m_rootNodeIndex(0),
+        m_subtreeSize(0)
 	{
-		//memset(&m_padding[0], 0, sizeof(m_padding));
+      std::fill_n( m_quantizedAabbMin, 3, 0 );
+      std::fill_n( m_quantizedAabbMax, 3, 0 );
+      std::fill_n( m_padding, 3, 0 );
 	}
 
 

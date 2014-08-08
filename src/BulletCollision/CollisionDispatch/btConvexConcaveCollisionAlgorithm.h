@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_CONVEX_CONCAVE_COLLISION_ALGORITHM_H
 #define BT_CONVEX_CONCAVE_COLLISION_ALGORITHM_H
 
+#include "../bullet_collision_config.h"
+
 #include "btActivatingCollisionAlgorithm.h"
 #include "BulletCollision/BroadphaseCollision/btDispatcher.h"
 #include "BulletCollision/BroadphaseCollision/btBroadphaseInterface.h"
@@ -26,7 +28,7 @@ class btDispatcher;
 #include "btCollisionCreateFunc.h"
 
 ///For each triangle in the concave mesh that overlaps with the AABB of a convex (m_convexProxy), processTriangle is called.
-class btConvexTriangleCallback : public btTriangleCallback
+class BULLET_COLLISION_EXPORT btConvexTriangleCallback : public btTriangleCallback
 {
 	const btCollisionObjectWrapper* m_convexBodyWrap;
 	const btCollisionObjectWrapper* m_triBodyWrap;
@@ -75,7 +77,7 @@ int	m_triangleCount;
 
 
 /// btConvexConcaveCollisionAlgorithm  supports collision between convex shapes and (concave) trianges meshes.
-class btConvexConcaveCollisionAlgorithm  : public btActivatingCollisionAlgorithm
+class BULLET_COLLISION_EXPORT btConvexConcaveCollisionAlgorithm  : public btActivatingCollisionAlgorithm
 {
 
 	bool	m_isSwapped;

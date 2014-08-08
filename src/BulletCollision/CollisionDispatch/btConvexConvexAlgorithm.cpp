@@ -417,11 +417,16 @@ void btConvexConvexAlgorithm ::processCollision (const btCollisionObjectWrapper*
 			btScalar	m_reportedDistance;
 			
 			bool		m_foundResult;
-			btWithoutMarginResult(btDiscreteCollisionDetectorInterface::Result* result, btScalar marginOnA, btScalar marginOnB)
-			:m_originalResult(result),
-			m_marginOnA(marginOnA),
-			m_marginOnB(marginOnB),
-			m_foundResult(false)
+
+			btWithoutMarginResult( btDiscreteCollisionDetectorInterface::Result* result,
+                                btScalar marginOnA,
+                                btScalar marginOnB
+                              )
+			: m_originalResult(result),
+			  m_marginOnA(marginOnA),
+			  m_marginOnB(marginOnB),
+           m_reportedDistance(0.0),
+			  m_foundResult(false)
 			{
 			}
 			

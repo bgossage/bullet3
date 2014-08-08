@@ -16,6 +16,10 @@ subject to the following restrictions:
 #ifndef BT_UNION_FIND_H
 #define BT_UNION_FIND_H
 
+#include "../bullet_collision_config.h"
+
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btAlignedObjectArray.h"
 
 #define USE_PATH_COMPRESSION 1
@@ -23,7 +27,7 @@ subject to the following restrictions:
 ///see for discussion of static island optimizations by Vroonsh here: http://code.google.com/p/bullet/issues/detail?id=406
 #define STATIC_SIMULATION_ISLAND_OPTIMIZATION 1
 
-struct	btElement
+struct BULLET_COLLISION_EXPORT	btElement
 {
 	int	m_id;
 	int	m_sz;
@@ -32,7 +36,7 @@ struct	btElement
 ///UnionFind calculates connected subsets
 // Implements weighted Quick Union with path compression
 // optimization: could use short ints instead of ints (halving memory, would limit the number of rigid bodies to 64k, sounds reasonable)
-class btUnionFind
+class BULLET_COLLISION_EXPORT btUnionFind
   {
     private:
 		btAlignedObjectArray<btElement>	m_elements;

@@ -25,6 +25,8 @@ subject to the following restrictions:
 3. This notice may not be removed or altered from any source distribution.
 */
 
+#include "../bullet_collision_config.h"
+
 #include "btBoxCollision.h"
 
 

@@ -93,7 +93,8 @@ struct	btDbvtTreeCollider : btDbvt::ICollide
 {
 	btDbvtBroadphase*	pbp;
 	btDbvtProxy*		proxy;
-	btDbvtTreeCollider(btDbvtBroadphase* p) : pbp(p) {}
+	btDbvtTreeCollider(btDbvtBroadphase* p) : pbp(p), proxy(0) {}
+
 	void	Process(const btDbvtNode* na,const btDbvtNode* nb)
 	{
 		if(na!=nb)

@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_COLLISION_ALGORITHM_H
 #define BT_COLLISION_ALGORITHM_H
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btScalar.h"
 #include "LinearMath/btAlignedObjectArray.h"
 
@@ -29,7 +31,7 @@ class	btPersistentManifold;
 
 typedef btAlignedObjectArray<btPersistentManifold*>	btManifoldArray;
 
-struct btCollisionAlgorithmConstructionInfo
+struct BULLET_COLLISION_EXPORT btCollisionAlgorithmConstructionInfo
 {
 	btCollisionAlgorithmConstructionInfo()
 		:m_dispatcher1(0),
@@ -37,7 +39,8 @@ struct btCollisionAlgorithmConstructionInfo
 	{
 	}
 	btCollisionAlgorithmConstructionInfo(btDispatcher* dispatcher,int temp)
-		:m_dispatcher1(dispatcher)
+		:m_dispatcher1(dispatcher),
+		 m_manifold(0)
 	{
 		(void)temp;
 	}
@@ -52,7 +55,7 @@ struct btCollisionAlgorithmConstructionInfo
 
 ///btCollisionAlgorithm is an collision interface that is compatible with the Broadphase and btDispatcher.
 ///It is persistent over frames
-class btCollisionAlgorithm
+class BULLET_COLLISION_EXPORT btCollisionAlgorithm
 {
 
 protected:

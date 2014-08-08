@@ -38,19 +38,43 @@ SIMD_FORCE_INLINE btScalar computeAngularImpulseDenominator(const btVector3& axi
 
 
 
-btConeTwistConstraint::btConeTwistConstraint(btRigidBody& rbA,btRigidBody& rbB, 
-											 const btTransform& rbAFrame,const btTransform& rbBFrame)
-											 :btTypedConstraint(CONETWIST_CONSTRAINT_TYPE, rbA,rbB),m_rbAFrame(rbAFrame),m_rbBFrame(rbBFrame),
-											 m_angularOnly(false),
-											 m_useSolveConstraintObsolete(CONETWIST_USE_OBSOLETE_SOLVER)
+btConeTwistConstraint::btConeTwistConstraint( btRigidBody& rbA,btRigidBody& rbB, 
+											             const btTransform& rbAFrame,const btTransform& rbBFrame
+                                            )
+ : btTypedConstraint(CONETWIST_CONSTRAINT_TYPE, rbA,rbB),
+   m_rbAFrame(rbAFrame),
+   m_rbBFrame(rbBFrame),
+   m_kSwing(0),
+	m_kTwist(0),
+	m_twistLimitSign(0),
+   m_swingCorrection(0),
+	m_twistCorrection(0),
+	m_twistAngle(0),
+	m_accSwingLimitImpulse(0),
+	m_accTwistLimitImpulse(0),
+   m_angularOnly(false),
+   m_useSolveConstraintObsolete(CONETWIST_USE_OBSOLETE_SOLVER),
+   m_swingLimitRatio(0),
+	m_twistLimitRatio(0)
 {
 	init();
 }
 
-btConeTwistConstraint::btConeTwistConstraint(btRigidBody& rbA,const btTransform& rbAFrame)
-											:btTypedConstraint(CONETWIST_CONSTRAINT_TYPE,rbA),m_rbAFrame(rbAFrame),
-											 m_angularOnly(false),
-											 m_useSolveConstraintObsolete(CONETWIST_USE_OBSOLETE_SOLVER)
+btConeTwistConstraint::btConeTwistConstraint( btRigidBody& rbA, const btTransform& rbAFrame )
+ : btTypedConstraint(CONETWIST_CONSTRAINT_TYPE,rbA),
+   m_rbAFrame(rbAFrame),
+   m_kSwing(0),
+	m_kTwist(0),
+	m_twistLimitSign(0),
+   m_swingCorrection(0),
+	m_twistCorrection(0),
+	m_twistAngle(0),
+	m_accSwingLimitImpulse(0),
+	m_accTwistLimitImpulse(0),
+   m_angularOnly(false),
+   m_useSolveConstraintObsolete(CONETWIST_USE_OBSOLETE_SOLVER),
+   m_swingLimitRatio(0),
+	m_twistLimitRatio(0)
 {
 	m_rbBFrame = m_rbAFrame;
 	m_rbBFrame.setOrigin(btVector3(0., 0., 0.));
@@ -65,6 +89,7 @@ void btConeTwistConstraint::init()
 	m_solveSwingLimit = false;
 	m_bMotorEnabled = false;
 	m_maxMotorImpulse = btScalar(-1);
+   m_bNormalizedMotorStrength = btScalar(0);
 
 	setLimit(btScalar(BT_LARGE_FLOAT), btScalar(BT_LARGE_FLOAT), btScalar(BT_LARGE_FLOAT));
 	m_damping = btScalar(0.01);

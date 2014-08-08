@@ -17,6 +17,8 @@ subject to the following restrictions:
 #ifndef BT_DISCRETE_COLLISION_DETECTOR1_INTERFACE_H
 #define BT_DISCRETE_COLLISION_DETECTOR1_INTERFACE_H
 
+#include "../bullet_collision_config.h"
+
 #include "LinearMath/btTransform.h"
 #include "LinearMath/btVector3.h"
 
@@ -25,7 +27,7 @@ subject to the following restrictions:
 /// the closest point is on the second object (B), and the normal points from the surface on B towards A.
 /// distance is between closest points on B and closest point on A. So you can calculate closest point on A
 /// by taking closestPointInA = closestPointInB + m_distance * m_normalOnSurfaceB
-struct btDiscreteCollisionDetectorInterface
+struct BULLET_COLLISION_EXPORT btDiscreteCollisionDetectorInterface
 {
 	
 	struct Result
@@ -61,7 +63,7 @@ struct btDiscreteCollisionDetectorInterface
 
 };
 
-struct btStorageResult : public btDiscreteCollisionDetectorInterface::Result
+struct BULLET_COLLISION_EXPORT btStorageResult : public btDiscreteCollisionDetectorInterface::Result
 {
 		btVector3	m_normalOnSurfaceB;
 		btVector3	m_closestPointInB;

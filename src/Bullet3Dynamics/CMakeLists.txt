@@ -29,7 +29,10 @@ SET(Bullet3Dynamics_HDRS
     shared/b3IntegrateTransforms.h
 )
 
-ADD_LIBRARY(Bullet3Dynamics ${Bullet3Dynamics_SRCS} ${Bullet3Dynamics_HDRS})
+SET_TARGET_PROPERTIES( ${OUTPUT_NAME} PROPERTIES DEBUG_POSTFIX "d")
+
+ADD_LIBRARY(Bullet3Dynamics ${LIB_TYPE} ${Bullet3Dynamics_SRCS} ${Bullet3Dynamics_HDRS})
+
 if (BUILD_SHARED_LIBS)
   target_link_libraries(Bullet3Dynamics Bullet3Collision)
 endif ()

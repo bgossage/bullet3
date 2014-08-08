@@ -17,6 +17,10 @@ subject to the following restrictions:
 #ifndef BT_MANIFOLD_RESULT_H
 #define BT_MANIFOLD_RESULT_H
 
+#include "../bullet_collision_config.h"
+
+#include "../bullet_collision_config.h"
+
 class btCollisionObject;
 struct btCollisionObjectWrapper;
 
@@ -36,7 +40,7 @@ extern ContactAddedCallback		gContactAddedCallback;
 
 
 ///btManifoldResult is a helper class to manage  contact results.
-class btManifoldResult : public btDiscreteCollisionDetectorInterface::Result
+class BULLET_COLLISION_EXPORT btManifoldResult : public btDiscreteCollisionDetectorInterface::Result
 {
 protected:
 
@@ -53,12 +57,18 @@ protected:
 public:
 
 	btManifoldResult()
+    : m_manifoldPtr(0),
+      m_body0Wrap(), m_body1Wrap(0),
 #ifdef DEBUG_PART_INDEX
-		:
 	m_partId0(-1),
 	m_partId1(-1),
 	m_index0(-1),
 	m_index1(-1)
+#else
+	m_partId0(0),
+	m_partId1(0),
+	m_index0(0),
+	m_index1(0)
 #endif //DEBUG_PART_INDEX
 	{
 	}

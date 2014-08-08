@@ -15,13 +15,15 @@ subject to the following restrictions:
 #ifndef BT_CONVEX_HULL_COMPUTER_H
 #define BT_CONVEX_HULL_COMPUTER_H
 
+#include "linear_math_config.h"
+
 #include "btVector3.h"
 #include "btAlignedObjectArray.h"
 
 /// Convex hull implementation based on Preparata and Hong
 /// See http://code.google.com/p/bullet/issues/detail?id=275
 /// Ole Kniemeyer, MAXON Computer GmbH
-class btConvexHullComputer
+class LINEAR_MATH_EXPORT btConvexHullComputer
 {
 	private:
 		btScalar compute(const void* coords, bool doubleCoords, int stride, int count, btScalar shrink, btScalar shrinkClamp);
@@ -31,13 +33,17 @@ class btConvexHullComputer
 		class Edge
 		{
 			private:
-				int next;
-				int reverse;
-				int targetVertex;
+				long next;
+				long reverse;
+				long targetVertex;
 
 				friend class btConvexHullComputer;
 
 			public:
+            Edge()
+               : next(0), reverse(0), targetVertex(0) {}
+
+
 				int getSourceVertex() const
 				{
 					return (this + reverse)->targetVertex;
@@ -62,7 +68,7 @@ class btConvexHullComputer
 				{
 					return this + reverse;
 				}
-		};
+		};// end class Edge
 
 
 		// Vertices of the output hull
@@ -96,7 +102,7 @@ class btConvexHullComputer
 		{
 			return compute(coords, true, stride, count, shrink, shrinkClamp);
 		}
-};
+};// end class btConvexHullComputer
 
 
 #endif //BT_CONVEX_HULL_COMPUTER_H

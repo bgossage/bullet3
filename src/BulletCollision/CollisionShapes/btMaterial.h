@@ -18,8 +18,10 @@ subject to the following restrictions:
 #ifndef BT_MATERIAL_H
 #define BT_MATERIAL_H
 
+#include "../bullet_collision_config.h"
+
 // Material class to be used by btMultimaterialTriangleMeshShape to store triangle properties
-class btMaterial
+class BULLET_COLLISION_EXPORT btMaterial
 {
     // public members so that materials can change due to world events
 public:
