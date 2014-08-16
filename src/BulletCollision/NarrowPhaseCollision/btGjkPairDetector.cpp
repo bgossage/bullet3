@@ -32,10 +32,12 @@ subject to the following restrictions:
 //must be above the machine epsilon
 #define REL_ERROR2 btScalar(1.0e-6)
 
+namespace
+{
 //temp globals, to improve GJK/EPA/penetration calculations
 int gNumDeepPenetrationChecks = 0;
 int gNumGjkChecks = 0;
-
+}// end anonymous namespace
 
 btGjkPairDetector::btGjkPairDetector(const btConvexShape* objectA,const btConvexShape* objectB,btSimplexSolverInterface* simplexSolver,btConvexPenetrationDepthSolver*	penetrationDepthSolver)
 :m_cachedSeparatingAxis(btScalar(0.),btScalar(1.),btScalar(0.)),

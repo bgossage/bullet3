@@ -22,9 +22,44 @@ subject to the following restrictions:
 #include "LinearMath/btSerializer.h"
 
 //'temporarily' global variables
-btScalar	gDeactivationTime = btScalar(2.);
-bool	gDisableDeactivation = false;
-static int uniqueId = 0;
+
+namespace
+{
+   int uniqueId = 0;
+
+   btScalar	gDeactivationTime = btScalar(2.);
+
+   bool	gDisableDeactivation = false;
+
+}// end anonymous namespace
+
+bool GetDisableDeactivation()
+{
+   return gDisableDeactivation;
+
+}// end GetDisableDeactivation() ~~~~~~~~~~~~~
+
+void SetDisableDeactivation( bool flag )
+{
+   gDisableDeactivation = flag;
+
+}// end SetDisableDeactivation() ~~~~~~~~~~~~~
+
+
+btScalar GetDeactivationTime()
+{
+   return gDeactivationTime;
+
+}// end GetDeactivationTime() ~~~~~~~~~~~~~
+
+void SetDeactivationTime( btScalar t )
+{
+   gDeactivationTime = t;
+
+}// end SetDeactivationTime() ~~~~~~~~~~~~~
+
+
+
 
 
 btRigidBody::btRigidBody(const btRigidBody::btRigidBodyConstructionInfo& constructionInfo)
