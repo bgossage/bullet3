@@ -67,7 +67,7 @@ enum	btSerializationFlags
 	BT_SERIALIZE_NO_DUPLICATE_ASSERT = 4
 };
 
-class LINEAR_MATH_EXPORT btSerializer
+class btSerializer
 {
 
 public:
@@ -127,7 +127,7 @@ public:
 #define BT_DNA_CODE				BT_MAKE_ID('D','N','A','1')
 
 
-struct LINEAR_MATH_EXPORT	btPointerUid
+struct btPointerUid
 {
 	union
 	{
@@ -138,7 +138,7 @@ struct LINEAR_MATH_EXPORT	btPointerUid
 
 ///The btDefaultSerializer is the main Bullet serialization class.
 ///The constructor takes an optional argument for backwards compatibility, it is recommended to leave this empty/zero.
-class LINEAR_MATH_EXPORT btDefaultSerializer	:	public btSerializer
+class btDefaultSerializer	:	public btSerializer
 {
 
 
