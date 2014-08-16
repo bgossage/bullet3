@@ -16,6 +16,8 @@ subject to the following restrictions:
 #ifndef BT_POINT2POINTCONSTRAINT_H
 #define BT_POINT2POINTCONSTRAINT_H
 
+#include "../bullet_dynamics_config.h"
+
 #include "LinearMath/btVector3.h"
 #include "btJacobianEntry.h"
 #include "btTypedConstraint.h"
@@ -31,7 +33,7 @@ class btRigidBody;
 #define btPoint2PointConstraintDataName	"btPoint2PointConstraintFloatData"
 #endif //BT_USE_DOUBLE_PRECISION
 
-struct	btConstraintSetting
+struct	BULLET_DYNAMICS_EXPORT btConstraintSetting
 {
 	btConstraintSetting()	:
 		m_tau(btScalar(0.3)),
@@ -51,7 +53,7 @@ enum btPoint2PointFlags
 };
 
 /// point to point constraint between two rigidbodies each with a pivotpoint that descibes the 'ballsocket' location in local space
-ATTRIBUTE_ALIGNED16(class) btPoint2PointConstraint : public btTypedConstraint
+ATTRIBUTE_ALIGNED16(class) BULLET_DYNAMICS_EXPORT btPoint2PointConstraint : public btTypedConstraint
 {
 #ifdef IN_PARALLELL_SOLVER
 public:

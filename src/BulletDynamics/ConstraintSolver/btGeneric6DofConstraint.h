@@ -27,6 +27,8 @@ http://gimpact.sf.net
 #ifndef BT_GENERIC_6DOF_CONSTRAINT_H
 #define BT_GENERIC_6DOF_CONSTRAINT_H
 
+#include "../bullet_dynamics_config.h"
+
 #include "LinearMath/btVector3.h"
 #include "btJacobianEntry.h"
 #include "btTypedConstraint.h"
@@ -45,7 +47,7 @@ class btRigidBody;
 
 
 //! Rotation Limit structure for generic joints
-class btRotationalLimitMotor
+class BULLET_DYNAMICS_EXPORT btRotationalLimitMotor
 {
 public:
     //! limit_parameters
@@ -122,7 +124,7 @@ public:
 
 
 
-class btTranslationalLimitMotor
+class BULLET_DYNAMICS_EXPORT btTranslationalLimitMotor
 {
 public:
 	btVector3 m_lowerLimit;//!< the constraint lower limits
@@ -245,7 +247,7 @@ This brings support for limit parameters and motors. </li>
 </ul>
 
 */
-ATTRIBUTE_ALIGNED16(class) btGeneric6DofConstraint : public btTypedConstraint
+ATTRIBUTE_ALIGNED16(class) BULLET_DYNAMICS_EXPORT btGeneric6DofConstraint : public btTypedConstraint
 {
 protected:
 
