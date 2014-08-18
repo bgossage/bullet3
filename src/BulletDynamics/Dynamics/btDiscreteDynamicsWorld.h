@@ -33,6 +33,10 @@ struct InplaceSolverIslandCallback;
 
 #include "LinearMath/btAlignedObjectArray.h"
 
+BULLET_DYNAMICS_EXPORT int GetNumClampedCcdMotions();
+
+BULLET_DYNAMICS_EXPORT void SetNumClampedCcdMotions( int num );
+
 
 ///btDiscreteDynamicsWorld provides discrete rigid body simulation
 ///those classes replace the obsolete CcdPhysicsEnvironment/CcdPhysicsController

@@ -870,9 +870,22 @@ public:
 
 };
 
+namespace
+{
 ///internal debugging variable. this value shouldn't be too high
 int gNumClampedCcdMotions=0;
 
+}// end anonymous namespace
+
+int GetNumClampedCcdMotions()
+{
+   return gNumClampedCcdMotions;
+}
+
+void SetNumClampedCcdMotions( int num )
+{
+   gNumClampedCcdMotions = num;
+}
 
 void	btDiscreteDynamicsWorld::createPredictiveContacts(btScalar timeStep)
 {
