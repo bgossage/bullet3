@@ -28,6 +28,12 @@ class btConvexShape;
 #include "btSimplexSolverInterface.h"
 class btConvexPenetrationDepthSolver;
 
+BULLET_COLLISION_EXPORT int GetNumGjkChecks();
+BULLET_COLLISION_EXPORT void SetNumGjkChecks( int num );
+BULLET_COLLISION_EXPORT int GetNumDeepPenetrationChecks();
+BULLET_COLLISION_EXPORT void SetNumDeepPenetrationChecks( int num );
+
+
 /// btGjkPairDetector uses GJK to implement the btDiscreteCollisionDetectorInterface
 class BULLET_COLLISION_EXPORT btGjkPairDetector : public btDiscreteCollisionDetectorInterface
 {

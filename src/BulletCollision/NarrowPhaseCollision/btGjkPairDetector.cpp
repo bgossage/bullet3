@@ -39,6 +39,27 @@ int gNumDeepPenetrationChecks = 0;
 int gNumGjkChecks = 0;
 }// end anonymous namespace
 
+int GetNumGjkChecks()
+{
+   return gNumGjkChecks;
+}
+
+void SetNumGjkChecks( int num )
+{
+   gNumGjkChecks = num;
+}
+
+int GetNumDeepPenetrationChecks()
+{
+   return gNumDeepPenetrationChecks;
+}
+
+void SetNumDeepPenetrationChecks( int num )
+{
+   gNumDeepPenetrationChecks = num;
+}
+
+
 btGjkPairDetector::btGjkPairDetector(const btConvexShape* objectA,const btConvexShape* objectB,btSimplexSolverInterface* simplexSolver,btConvexPenetrationDepthSolver*	penetrationDepthSolver)
 :m_cachedSeparatingAxis(btScalar(0.),btScalar(1.),btScalar(0.)),
 m_penetrationDepthSolver(penetrationDepthSolver),
