@@ -29,10 +29,14 @@ subject to the following restrictions:
 
 
 ///only the 32bit versions for now
-extern char sBulletDNAstr[];
-extern int sBulletDNAlen;
-extern char sBulletDNAstr64[];
-extern int sBulletDNAlen64;
+
+LINEAR_MATH_EXPORT char const* GetBulletDNAstr();
+LINEAR_MATH_EXPORT int GetBulletDNAlen();
+
+LINEAR_MATH_EXPORT char const* GetBulletDNAstr64();
+LINEAR_MATH_EXPORT int GetBulletDNAlen64();
+
+
 
 SIMD_FORCE_INLINE	int btStrLen(const char* str) 
 {
@@ -394,10 +398,10 @@ public:
 #else //BT_INTERNAL_UPDATE_SERIALIZATION_STRUCTURES
 			if (VOID_IS_8)
 			{
-				initDNA((const char*)sBulletDNAstr64,sBulletDNAlen64);
+				initDNA( GetBulletDNAstr64(), GetBulletDNAlen64() );
 			} else
 			{
-				initDNA((const char*)sBulletDNAstr,sBulletDNAlen);
+				initDNA( GetBulletDNAstr(), GetBulletDNAlen() );
 			}
 #endif //BT_INTERNAL_UPDATE_SERIALIZATION_STRUCTURES
 	

@@ -1,3 +1,6 @@
+
+#include "btSerializer.h"
+
 char sBulletDNAstr[]= {
 char(83),char(68),char(78),char(65),char(78),char(65),char(77),char(69),char(69),char(1),char(0),char(0),char(109),char(95),char(115),char(105),char(122),char(101),char(0),char(109),
 char(95),char(99),char(97),char(112),char(97),char(99),char(105),char(116),char(121),char(0),char(42),char(109),char(95),char(100),char(97),char(116),char(97),char(0),char(109),char(95),
@@ -989,3 +992,23 @@ char(85),char(0),char(60),char(1),char(4),char(0),char(61),char(1),char(4),char(
 char(4),char(0),char(64),char(1),char(4),char(0),char(65),char(1),char(4),char(0),char(66),char(1),char(4),char(0),char(67),char(1),char(82),char(0),char(68),char(1),
 };
 int sBulletDNAlen64= sizeof(sBulletDNAstr64);
+
+
+char const* GetBulletDNAstr()
+{
+   return sBulletDNAstr;
+}
+int GetBulletDNAlen()
+{
+   return sBulletDNAlen;
+}
+
+char const* GetBulletDNAstr64()
+{
+   return sBulletDNAstr64;
+}
+
+int GetBulletDNAlen64()
+{
+   return sBulletDNAlen64;
+}
