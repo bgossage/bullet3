@@ -22,7 +22,7 @@
 #include "LinearMath/btIDebugDraw.h"
 #include "BulletDynamics/ConstraintSolver/btContactConstraint.h"
 
-#define ROLLING_INFLUENCE_FIX
+//#define ROLLING_INFLUENCE_FIX
 
 
 btRigidBody& btActionInterface::getFixedBody()
@@ -250,6 +250,7 @@ btScalar btRaycastVehicle::rayCast(btWheelInfo& wheel)
 		wheel.m_suspensionRelativeVelocity = btScalar(0.0);
 		wheel.m_raycastInfo.m_contactNormalWS = - wheel.m_raycastInfo.m_wheelDirectionWS;
 		wheel.m_clippedInvContactDotSuspension = btScalar(1.0);
+      wheel.m_raycastInfo.m_isInContact = false;
 	}
 
 	return depth;
@@ -686,8 +687,10 @@ void	btRaycastVehicle::updateFriction(btScalar	timeStep)
 			{
 				btWheelInfo& wheelInfo = m_wheelInfo[wheel];
 
-				btVector3 rel_pos = wheelInfo.m_raycastInfo.m_contactPointWS - 
-						m_chassisBody->getCenterOfMassPosition();
+            btVector3 centerOfMass = m_chassisBody->getCenterOfMassPosition();
+            btVector3 wheelContactPoint = wheelInfo.m_raycastInfo.m_contactPointWS;
+
+				btVector3 rel_pos = wheelContactPoint - centerOfMass;
 
 				if (m_forwardImpulse[wheel] != btScalar(0.))
 				{
