@@ -88,11 +88,7 @@ struct BULLET_DYNAMICS_EXPORT btWheelInfo
 	void*		m_clientInfo;//can be used to store pointer to sync transforms...
 
    btWheelInfo()
-      : m_clientInfo(0),
-        m_clippedInvContactDotSuspension(0),
-        m_suspensionRelativeVelocity(0),
-        m_wheelsSuspensionForce(0),
-        m_suspensionRestLength1(0.0),
+      : m_suspensionRestLength1(0.0),
         m_maxSuspensionTravelCm(0.0),
         m_wheelsRadius(0.0),
         m_suspensionStiffness(0.0),
@@ -107,7 +103,12 @@ struct BULLET_DYNAMICS_EXPORT btWheelInfo
         m_engineForce(0.0),
         m_brake(0.0),
         m_bIsFrontWheel(false),
+        m_clientInfo(0),
+        m_clippedInvContactDotSuspension(0),
+        m_suspensionRelativeVelocity(0),
+        m_wheelsSuspensionForce(0),
         m_skidInfo(0)
+        
      {
 
      }
