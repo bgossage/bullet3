@@ -19,6 +19,7 @@ subject to the following restrictions:
 
 #include "linear_math_config.h"
 
+
 #ifdef BT_MANAGED_CODE
 //Aligned data types not supported in managed code
 #pragma unmanaged
@@ -29,13 +30,19 @@ subject to the following restrictions:
 #include <stdlib.h>//size_t for MSVC 6.0
 #include <float.h>
 
+#include "btException.h"
+
 /* SVN $Revision$ on $Date$ from http://bullet.googlecode.com*/
 #define BT_BULLET_VERSION 283
+
 
 inline int	btGetVersion()
 {
 	return BT_BULLET_VERSION;
 }
+
+
+
 
 #if defined(DEBUG) || defined (_DEBUG)
 #define BT_DEBUG
@@ -96,15 +103,23 @@ inline int	btGetVersion()
 
 		#endif //__MINGW32__
 
+		
+
+		
 #ifdef BT_DEBUG
-	#ifdef _MSC_VER
-		#include <stdio.h>
-		#define btAssert(x) { if(!(x)){printf("Assert " __FILE__  ":%u ("#x")\n", __LINE__);__debugbreak();	}}
-	#else//_MSC_VER
-		#include <assert.h>
-		#define btAssert assert
-	#endif//_MSC_VER
+#ifndef BT_USE_EXCEPTIONS
+   	#ifdef _MSC_VER
+   		#include <stdio.h>
+   		#define btAssert(x) { if(!(x)){printf("Assert " __FILE__  ":%u ("#x")\n", __LINE__);__debugbreak();	}}
+   	#else//_MSC_VER
+   		#include <assert.h>
+   		#define btAssert assert
+   	#endif//_MSC_VER
+   #else
+      #define btAssert(x) if(!(x) { BT_THROW_MESSAGE( #x ) }
+   #endif
 #else
+
 		#define btAssert(x)
 #endif
 		//btFullAssert is optional, slows down a lot
@@ -153,6 +168,7 @@ inline int	btGetVersion()
 		#include <assert.h>
 		#endif
 #ifdef BT_DEBUG
+
 		#define btAssert assert
 #else
 		#define btAssert(x)
@@ -209,6 +225,7 @@ inline int	btGetVersion()
 
 	#if defined(DEBUG) || defined (_DEBUG)
 	 #if defined (__i386__) || defined (__x86_64__)
+
 	#include <stdio.h>
 	 #define btAssert(x)\
 	{\
@@ -245,8 +262,16 @@ inline int	btGetVersion()
 		#endif
 
 #if defined(DEBUG) || defined (_DEBUG)
-		#define btAssert assert
+   #ifndef BT_USE_EXCEPTIONS
+      #define btAssert assert
+   #else
+		#define btAssert(x) if( !(x) ) { throw btException( BT_MSG_STR(x), \
+                                BT_EXCEPTION_SCOPE,\
+                                __FILE__,\
+                                __LINE__ ); }
+   #endif
 #else
+
 		#define btAssert(x)
 #endif
 
