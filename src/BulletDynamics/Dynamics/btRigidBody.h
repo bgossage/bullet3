@@ -28,9 +28,6 @@ class btMotionState;
 class btTypedConstraint;
 
 
-extern btScalar gDeactivationTime;
-extern bool gDisableDeactivation;
-
 #ifdef BT_USE_DOUBLE_PRECISION
 #define btRigidBodyData	btRigidBodyDoubleData
 #define btRigidBodyDataName	"btRigidBodyDoubleData"
@@ -48,6 +45,14 @@ enum	btRigidBodyFlags
 	///If really needed, run at a high frequency like 1000 Hertz:	///See Demos/GyroscopicDemo for an example use
 	BT_ENABLE_GYROPSCOPIC_FORCE = 2
 };
+
+BULLET_DYNAMICS_EXPORT bool GetDisableDeactivation();
+
+BULLET_DYNAMICS_EXPORT void SetDisableDeactivation( bool flag );
+
+BULLET_DYNAMICS_EXPORT btScalar GetDeactivationTime();
+
+BULLET_DYNAMICS_EXPORT void SetDeactivationTime( btScalar t );
 
 
 ///The btRigidBody is the main class for rigid body objects. It is derived from btCollisionObject, so it keeps a pointer to a btCollisionShape.
@@ -438,13 +443,13 @@ public:
 			return false;
 
 		//disable deactivation
-		if (gDisableDeactivation || (gDeactivationTime == btScalar(0.)))
+		if ( GetDisableDeactivation() || (GetDeactivationTime() == btScalar(0.)))
 			return false;
 
 		if ( (getActivationState() == ISLAND_SLEEPING) || (getActivationState() == WANTS_DEACTIVATION))
 			return true;
 
-		if (m_deactivationTime> gDeactivationTime)
+		if (m_deactivationTime > GetDeactivationTime())
 		{
 			return true;
 		}

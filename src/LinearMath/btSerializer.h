@@ -29,10 +29,14 @@ subject to the following restrictions:
 
 
 ///only the 32bit versions for now
-extern char sBulletDNAstr[];
-extern int sBulletDNAlen;
-extern char sBulletDNAstr64[];
-extern int sBulletDNAlen64;
+
+LINEAR_MATH_EXPORT char const* GetBulletDNAstr();
+LINEAR_MATH_EXPORT int GetBulletDNAlen();
+
+LINEAR_MATH_EXPORT char const* GetBulletDNAstr64();
+LINEAR_MATH_EXPORT int GetBulletDNAlen64();
+
+
 
 SIMD_FORCE_INLINE	int btStrLen(const char* str) 
 {
@@ -67,7 +71,7 @@ enum	btSerializationFlags
 	BT_SERIALIZE_NO_DUPLICATE_ASSERT = 4
 };
 
-class LINEAR_MATH_EXPORT btSerializer
+class btSerializer
 {
 
 public:
@@ -127,7 +131,7 @@ public:
 #define BT_DNA_CODE				BT_MAKE_ID('D','N','A','1')
 
 
-struct LINEAR_MATH_EXPORT	btPointerUid
+struct btPointerUid
 {
 	union
 	{
@@ -138,7 +142,7 @@ struct LINEAR_MATH_EXPORT	btPointerUid
 
 ///The btDefaultSerializer is the main Bullet serialization class.
 ///The constructor takes an optional argument for backwards compatibility, it is recommended to leave this empty/zero.
-class LINEAR_MATH_EXPORT btDefaultSerializer	:	public btSerializer
+class btDefaultSerializer	:	public btSerializer
 {
 
 
@@ -394,10 +398,10 @@ public:
 #else //BT_INTERNAL_UPDATE_SERIALIZATION_STRUCTURES
 			if (VOID_IS_8)
 			{
-				initDNA((const char*)sBulletDNAstr64,sBulletDNAlen64);
+				initDNA( GetBulletDNAstr64(), GetBulletDNAlen64() );
 			} else
 			{
-				initDNA((const char*)sBulletDNAstr,sBulletDNAlen);
+				initDNA( GetBulletDNAstr(), GetBulletDNAlen() );
 			}
 #endif //BT_INTERNAL_UPDATE_SERIALIZATION_STRUCTURES
 	

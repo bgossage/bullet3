@@ -22,6 +22,8 @@
 
 
 #include "btMultiBody.h"
+
+#include "../Dynamics/btRigidBody.h"
 #include "btMultiBodyLink.h"
 #include "btMultiBodyLinkCollider.h"
 #include "LinearMath/btTransformUtil.h"
@@ -2836,8 +2838,8 @@ void btMultiBody::goToSleep()
 void btMultiBody::checkMotionAndSleepIfRequired(btScalar timestep)
 {
 	int num_links = getNumLinks();
-	extern bool gDisableDeactivation;
-    if (!m_canSleep || gDisableDeactivation) 
+
+    if (!m_canSleep || GetDisableDeactivation() ) 
 	{
 		m_awake = true;
 		m_sleepTimer = 0;

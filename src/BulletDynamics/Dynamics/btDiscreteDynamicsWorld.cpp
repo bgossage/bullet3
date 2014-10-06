@@ -433,7 +433,7 @@ int	btDiscreteDynamicsWorld::stepSimulation( btScalar timeStep,int maxSubSteps, 
 	if (getDebugDrawer())
 	{
 		btIDebugDraw* debugDrawer = getDebugDrawer ();
-		gDisableDeactivation = (debugDrawer->getDebugMode() & btIDebugDraw::DBG_NoDeactivation) != 0;
+		SetDisableDeactivation( (debugDrawer->getDebugMode() & btIDebugDraw::DBG_NoDeactivation) != 0 );
 	}
 	if (numSimulationSubSteps)
 	{
@@ -870,9 +870,22 @@ public:
 
 };
 
+namespace
+{
 ///internal debugging variable. this value shouldn't be too high
 int gNumClampedCcdMotions=0;
 
+}// end anonymous namespace
+
+int GetNumClampedCcdMotions()
+{
+   return gNumClampedCcdMotions;
+}
+
+void SetNumClampedCcdMotions( int num )
+{
+   gNumClampedCcdMotions = num;
+}
 
 void	btDiscreteDynamicsWorld::createPredictiveContacts(btScalar timeStep)
 {

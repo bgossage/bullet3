@@ -22,7 +22,7 @@ subject to the following restrictions:
 #include "btAlignedObjectArray.h"
 
 ///very basic hashable string implementation, compatible with btHashMap
-struct LINEAR_MATH_EXPORT btHashString
+struct btHashString
 {
 	const char* m_string;
 	unsigned int	m_hash;

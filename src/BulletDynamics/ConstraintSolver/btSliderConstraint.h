@@ -25,6 +25,8 @@ TODO:
 #ifndef BT_SLIDER_CONSTRAINT_H
 #define BT_SLIDER_CONSTRAINT_H
 
+#include "../bullet_dynamics_config.h"
+
 #ifdef BT_USE_DOUBLE_PRECISION
 #define btSliderConstraintData2		btSliderConstraintDoubleData
 #define btSliderConstraintDataName  "btSliderConstraintDoubleData"
@@ -66,7 +68,7 @@ enum btSliderFlags
 };
 
 
-ATTRIBUTE_ALIGNED16(class) btSliderConstraint : public btTypedConstraint
+ATTRIBUTE_ALIGNED16(class) BULLET_DYNAMICS_EXPORT btSliderConstraint : public btTypedConstraint
 {
 protected:
 	///for backwards compatibility during the transition to 'getInfo/getInfo2'

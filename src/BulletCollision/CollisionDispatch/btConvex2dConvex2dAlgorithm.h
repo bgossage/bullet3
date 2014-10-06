@@ -72,7 +72,7 @@ public:
 		return m_manifoldPtr;
 	}
 
-	struct CreateFunc :public 	btCollisionAlgorithmCreateFunc
+	struct BULLET_COLLISION_EXPORT CreateFunc :public 	btCollisionAlgorithmCreateFunc
 	{
 
 		btConvexPenetrationDepthSolver*		m_pdSolver;

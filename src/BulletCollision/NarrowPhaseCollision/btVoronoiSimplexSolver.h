@@ -18,6 +18,8 @@ subject to the following restrictions:
 #ifndef BT_VORONOI_SIMPLEX_SOLVER_H
 #define BT_VORONOI_SIMPLEX_SOLVER_H
 
+#include "../bullet_collision_config.h"
+
 #include "btSimplexSolverInterface.h"
 
 #define VORONOI_SIMPLEX_MAX_VERTS 5
@@ -104,7 +106,7 @@ struct BULLET_COLLISION_EXPORT	btSubSimplexClosestResult
 /// btVoronoiSimplexSolver is an implementation of the closest point distance algorithm from a 1-4 points simplex to the origin.
 /// Can be used with GJK, as an alternative to Johnson distance algorithm.
 #ifdef NO_VIRTUAL_INTERFACE
-ATTRIBUTE_ALIGNED16(class) btVoronoiSimplexSolver
+ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btVoronoiSimplexSolver
 #else
 ATTRIBUTE_ALIGNED16(class) BULLET_COLLISION_EXPORT btVoronoiSimplexSolver : public btSimplexSolverInterface
 #endif
