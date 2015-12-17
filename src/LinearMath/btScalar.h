@@ -262,6 +262,7 @@ inline int	btGetVersion()
 		#endif
 
 #if defined(DEBUG) || defined (_DEBUG)
+   #define BT_USE_EXCEPTIONS
    #ifndef BT_USE_EXCEPTIONS
       #define btAssert assert
    #else
