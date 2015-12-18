@@ -116,13 +116,12 @@ def main():
    command = "cppcheck --version"
    subprocess.call( command, shell=True)
 
-# Setup SGPRIME environment space
+# Setup Bullet environment space
    try:
-      if ( platform.system() == "Linux" ):
-         os.putenv( 'LD_LIBRARY_PATH', os.environ['LD_LIBRARY_PATH'] + ':' + BulletPath +  '/lib' )
-      elif( platform.system() == "Windows" ):
-         os.putenv( 'PATH', os.environ['PATH'] + ';' + BulletPath +  '/lib' )
-         os.environ[ 'SGPRIME' ] = BulletPath
+   
+   # Run the whole shabang
+      RunAllChecks()
+         
    except Exception as err:
       print "An error occured: "
       print type( err )
@@ -131,9 +130,6 @@ def main():
    except:
       print "Unknown error "
       sys.exit( -1  )
-
-# Run the whole shabang
-   RunAllChecks()
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # The if __name__ == "__main__": ... trick exists in Python so that our Python files can act

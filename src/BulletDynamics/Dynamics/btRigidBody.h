@@ -204,13 +204,13 @@ public:
 	static const btRigidBody*	upcast(const btCollisionObject* colObj)
 	{
 		if (colObj->getInternalType()&btCollisionObject::CO_RIGID_BODY)
-			return (const btRigidBody*)colObj;
+			return static_cast<const btRigidBody*>(colObj);
 		return 0;
 	}
 	static btRigidBody*	upcast(btCollisionObject* colObj)
 	{
 		if (colObj->getInternalType()&btCollisionObject::CO_RIGID_BODY)
-			return (btRigidBody*)colObj;
+			return static_cast<btRigidBody*>(colObj);
 		return 0;
 	}
 	
