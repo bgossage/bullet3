@@ -16,3 +16,7 @@ CMakeCache.txt
 *.sln
 lib
 *.so*
+
+debug_build/*
+release_build/*
+include/*
