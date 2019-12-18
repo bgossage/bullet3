@@ -14,7 +14,6 @@ SET(LinearMath_SRCS
 	btSerializer64.cpp
 	btThreads.cpp
 	btVector3.cpp
-	btException.cpp
 	TaskScheduler/btTaskScheduler.cpp
 	TaskScheduler/btThreadSupportPosix.cpp
 	TaskScheduler/btThreadSupportWin32.cpp
@@ -49,7 +48,6 @@ SET(LinearMath_HDRS
 	btTransform.h
 	btTransformUtil.h
 	btVector3.h
-	btException.h
 	TaskScheduler/btThreadSupportInterface.h
 )
 
