@@ -17,6 +17,7 @@ SET(LinearMath_SRCS
 	TaskScheduler/btTaskScheduler.cpp
 	TaskScheduler/btThreadSupportPosix.cpp
 	TaskScheduler/btThreadSupportWin32.cpp
+	btException.cpp
 )
 
 SET(LinearMath_HDRS
@@ -49,6 +50,7 @@ SET(LinearMath_HDRS
 	btTransformUtil.h
 	btVector3.h
 	TaskScheduler/btThreadSupportInterface.h
+	btException.h
 )
 
 ADD_LIBRARY(LinearMath ${LinearMath_SRCS} ${LinearMath_HDRS})
